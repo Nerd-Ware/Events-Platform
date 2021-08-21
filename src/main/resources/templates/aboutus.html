@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/regular.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="https://www.primefaces.org/primeng-6-0-0-beta-1-released-primeicons/" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        body{background-color:black;
+
+      }
+      .btn btn-outline-warning:hover{
+            color-white;
+            background-color:black;
+            border-style: solid;
+            border-width: 1px;border-color: #F5D300;
+      }
+      a:hover{
+      color:white;
+      }
+       ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px grey;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #F5D300;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #CCCC00;
+}
+
+    </style>
+</head>
+<body>
+<h1> hello from about us</h1>
+
+<form method="post" action="/aboutus"  class=" p-3 rounded" style="max-width: 350px; margin: 0 auto;border-style: solid;
+  border-width: 1px;border-color: #F5D300;">
+    <div class="mb-3">
+    <label for="email" class="form-label"><i style="font-size:20px;color:#F5D300" class="fas fa-envelope"><span style="font-family: 'Roboto', sans-serif;">  Email</span></i></label>
+    <input name="email" class="form-control" id="email" type="text" placeholder="your email">
+    </div>
+    <div class="mb-3">
+    <label for="body" class="form-label" ><i style="font-size:20px;color:#F5D300" class="fas fa-comment-medical"><span style="font-family: 'Roboto', sans-serif;"> Your Feedback</span></i></label>
+        <textarea class="form-control" id="body" name="body" placeholder="your feedback about our website" type="text"></textarea>
+    </div>
+
+
+
+    <input type="submit" value="Submit" class="btn btn-warning" >
+</form>
+
+<!--<div th:each="feedback: ${allFeedbacks}">-->
+<!--    <h3 th:text="${feedback.username}"></h3>-->
+<!--    <p th:text="${feedback.email}"></p>-->
+<!--    <p th:text="${feedback.body}"></p>-->
+<!--    <p th:text="${feedback.getCreatedAt()}"></p>-->
+<!--</div>-->
+<br><br>
+<div class="cont" style=" overflow-y:scroll;height:320px;margin-right:300px;">
+<div class="card w-75 "  style="margin-left:300px;margin-right:auto;margin-top:20px;border-style: solid;
+     border-width: 1px;border-color: #F5D300;background-color:#444444;width:1000px" th:each="feedback: ${allFeedbacks}">
+    <div class="card-body" style="grid-template-columns: 1fr 100px;display: grid;">
+        <div>
+        <h5 class="card-title" style="color:white"><i class="fas fa-user" style="color:white;margin-right:0.5%"></i><span th:text="${feedback.username}"></span></h5>
+            <br>
+        <p class="card-text" style="color:white"><i class="fas fa-comment" style="color:white;margin-right:0.5%"></i><span th:text="${feedback.body}"></span></p>
+        </div>
+        <div>
+            <p class="card-text" style="color:white;font-size:10px;"><i class="fas fa-clock" style="color:white;margin-right:0.7%;font-size:10px;"></i><span th:text="${feedback.getCreatedAt()}" style="margin-left:3%;"></span></p>
+            <br>
+            <form class="d-flex">
+                <a href="#" class="btn btn-outline-warning" style="font-family: 'Roboto', sans-serif;margin-right:0.5%;font-size:12px;" > <i class="fas fa-eye" style="font-size:12px;"> </i> Find User</a>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+</body>
+
+</html>

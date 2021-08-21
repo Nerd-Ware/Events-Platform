@@ -2,6 +2,9 @@ package com.example.eventplatform.model;
 
 import javax.annotation.processing.Generated;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 @Entity
 public class DbUser {
@@ -16,6 +19,15 @@ public class DbUser {
     private String dateOfBirth;
     private String bio;
     private String img;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "following_followers",
+            joinColumns = @JoinColumn(name = "following_id"),
+            inverseJoinColumns = @JoinColumn(name = "followers_id"))
+    List<DbUser> following=new ArrayList<>();
+
+    @ManyToMany(mappedBy = "following")
+    List<DbUser> followers=new ArrayList<>();
 
 
     public DbUser(){
@@ -32,6 +44,21 @@ public class DbUser {
         this.img = img;
     }
 
+    public List<DbUser> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(List<DbUser> following) {
+        this.following = following;
+    }
+
+    public List<DbUser> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(List<DbUser> followers) {
+        this.followers = followers;
+    }
 
     public int getId() {
         return id;
