@@ -1,5 +1,4 @@
 package com.example.eventplatform.controller;
-
 import com.example.eventplatform.model.DbUser;
 import com.example.eventplatform.model.Event;
 import com.example.eventplatform.model.EventNeeds;
@@ -9,12 +8,8 @@ import com.example.eventplatform.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.security.Principal;
 import java.util.List;
 
@@ -73,6 +68,17 @@ public class EventController {
         model.addAttribute("users" ,users );
         model.addAttribute("following" ,me.getFollowing() );
         return "upCommingEvents.html";
+    }
+
+
+    @PostMapping("/deleteevent/{id}")
+    public RedirectView attend(@PathVariable("id") int id){
+
+        Event event = eventRepository.findById(id).get();
+        List<EventNeeds> eventNeeds= event.getEventNeeds();
+        eventNeedsRepository.deleteAll(eventNeeds);
+        eventRepository.delete(event);
+        return new RedirectView("/profile");
     }
 
 
