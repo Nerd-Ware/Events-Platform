@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="followingEvents" th:each="user: ${following}">
+    <div th:each="event : ${user.myEvents}">
+        <p >following <span th:text="${event.name}"></span></p>
+    </div>
+</div>
+
+
+
+<div class="ALL EVENTS" th:each="user: ${users}">
+  <div th:each="event : ${user.myEvents}">
+    <p>all <span th:text="${event.name}"></span> </p>
+  </div>
+</div>
+</body>
+</html>

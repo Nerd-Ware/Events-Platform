@@ -6,8 +6,12 @@
 </head>
 <body>
 <p th:text="${user.username}"></p>
-<form method="post" action="#" th:action="'/user/'+${user.id}" th:if="${status}==true">
+<form method="post" action="#" th:action="'/follow/'+${user.id}" th:if="${status}==true">
     <input type="submit" value="Follow">
+</form>
+
+<form method="post" action="#" th:action="'/unfollow/'+${user.id}" th:if="${statusUnfollow}==true">
+    <input type="submit" value="unFollow">
 </form>
 </body>
 </html>

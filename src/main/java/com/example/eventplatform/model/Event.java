@@ -1,9 +1,9 @@
 package com.example.eventplatform.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Event {
@@ -15,9 +15,13 @@ public class Event {
     private String date;
     private int maxParticipant;
     private String img;
+    private LocalDateTime createdAt;
 
+    @ManyToOne()
+    DbUser user;
 
-
+    @OneToMany(mappedBy = "event")
+    List<EventNeeds> eventNeeds = new ArrayList<>();
 
     public Event(){
 
@@ -30,6 +34,24 @@ public class Event {
         this.date = date;
         this.maxParticipant = maxParticipant;
         this.img = img;
+        this.createdAt= LocalDateTime.now();
+    }
+
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public DbUser getUser() {
+        return user;
+    }
+
+    public void setUser(DbUser user) {
+        this.user = user;
     }
 
     public int getId() {
@@ -78,5 +100,13 @@ public class Event {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public List<EventNeeds> getEventNeeds() {
+        return eventNeeds;
+    }
+
+    public void setEventNeeds(List<EventNeeds> eventNeeds) {
+        this.eventNeeds = eventNeeds;
     }
 }
