@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,6 +8,89 @@
 <main>
     <p th:text="${me.username}"></p>
 
+    <div th:each="event : ${me.myEvents}" style="border: solid 2px black">
+    <p th:text="${event.name}"></p>
+        <p th:text="${event.description}"></p>
+        <p th:text="${event.date}"></p>
+        <p th:text="${event.maxParticipant}"></p>
+
+        <div th:each="eventNeed: ${event.eventNeeds}">
+            <P th:text="${eventNeed.name}"></P>
+            <P th:text="${eventNeed.count}"></P>
+        </div>
+        <form action="#" th:action="'/deleteevent/'+ ${event.id}" method="post" >
+            <input type="submit" value="delete event">
+        </form>
+    </div>
+
+    <button id="updateButton">add new event</button>
+
+
+    <form method="post" action="/addevent"  id="updatedForm">
+        <fieldset>
+            <legend>add an event</legend>
+            <label for="name">event name</label>
+            <input id="name" name="name" type="text" required>
+            <label for="description">event description</label>
+            <input id="description" name="description" type="text" required>
+            <label for="date">event date</label>
+            <input id="date" name="date" type="date"  required>
+            <label for="maxParticipant">event max Participant number</label>
+            <input id="maxParticipant" name="maxParticipant" type="number" required>
+            <label for="img">event img url</label>
+            <input id="img" name="img" type="text" required>
+
+            <label for="number_links">select the number of needs</label>
+            <select name="number_links" id="number_links">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <div id="needs">
+
+
+            </div>
+            <input type="submit" value="add Event">
+        </fieldset>
+    </form>
+
 </main>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+$('#updatedForm').hide();
+$('#updateButton').on('click', callF)
+function callF(){
+$('#updatedForm').toggle();
+}
+
+$("select").on('change',function () {
+      $("#needs").empty();
+      var str = "";
+      var count = Number($("select option:selected").val());
+
+      for(let i =0 ; i<count ;i++){
+      $("#needs").append('<div id="single" ></div>')
+      $("#single").attr("id", i);
+
+      $("#" +i).append("<label for='need'>need name</label>");
+      $("#"+i).append("<input id='need' type='text' name='need' required>");
+      $("#need").removeAttr("name")
+      $("#need").attr("name", "name"+i);
+      $("#need").attr("id", "name"+i);
+
+      $("#"+i).append("<label for='needNumber'>need count</label>");
+      $("#"+i).append("<input id='needNumber' type='number' name='needNumber' required>");
+      $("#needNumber").removeAttr("name")
+      $("#needNumber").attr("name", "number"+i);
+       $("#needNumber").attr("id", "number"+i);
+      }
+});
+
+</script>
 </body>
 </html>

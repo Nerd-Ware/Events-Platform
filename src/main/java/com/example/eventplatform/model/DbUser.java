@@ -30,6 +30,11 @@ public class DbUser {
     List<DbUser> followers=new ArrayList<>();
 
 
+    @OneToMany(mappedBy = "user")
+    List<Event> myEvents = new ArrayList<>();
+
+
+
     public DbUser(){
 
     }
@@ -42,6 +47,14 @@ public class DbUser {
         this.dateOfBirth = dateOfBirth;
         this.bio = bio;
         this.img = img;
+    }
+
+    public List<Event> getMyEvents() {
+        return myEvents;
+    }
+
+    public void setMyEvents(List<Event> myEvents) {
+        this.myEvents = myEvents;
     }
 
     public List<DbUser> getFollowing() {

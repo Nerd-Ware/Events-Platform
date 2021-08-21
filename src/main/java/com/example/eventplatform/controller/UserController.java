@@ -64,19 +64,35 @@ public class UserController {
 
         if (dbUserRepository.findByUsername(p.getName()).getFollowing().contains(user) || user == me){
             model.addAttribute("status",false);
+            if(user != me){
+                model.addAttribute("statusUnfollow",true);
+            }
         }else {
             model.addAttribute("status",true);
+            model.addAttribute("statusUnfollow",false);
         }
 
         return "user.html";
     }
 
-    @PostMapping("/user/{id}")
-    public RedirectView addUser(@PathVariable("id") int id ,Principal p){
+    @PostMapping("/follow/{id}")
+    public RedirectView follow(@PathVariable("id") int id ,Principal p){
         DbUser me=dbUserRepository.findByUsername(p.getName());
         DbUser user=dbUserRepository.findById(id).get();
         me.getFollowing().add(user);
         user.getFollowers().add(me);
+        dbUserRepository.save(me);
+        dbUserRepository.save(user);
+        return new RedirectView("/user/{id}");
+    }
+
+
+    @PostMapping("/unfollow/{id}")
+    public RedirectView unFollow(@PathVariable("id") int id ,Principal p){
+        DbUser me=dbUserRepository.findByUsername(p.getName());
+        DbUser user=dbUserRepository.findById(id).get();
+        me.getFollowing().remove(user);
+        user.getFollowers().remove(me);
         dbUserRepository.save(me);
         dbUserRepository.save(user);
         return new RedirectView("/user/{id}");
