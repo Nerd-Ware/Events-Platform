@@ -3,36 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/regular.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+  <link href="https://www.primefaces.org/primeng-6-0-0-beta-1-released-primeicons/" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    body{
+    background-color:black;
+    }
+        .nav-link{
+        color:white;
+        }
+        .nav-link:hover{
+        color:white;
+        }
+        .border-secondary {
+         margin: 0 auto;border-style: solid;
+  border-width: 1px;border-color: #F5D300;
+        }
+        #username,#password{
+        border-style: solid;
+  border-width: 1px;border-color: #F5D300;
+        }
+    </style>
 </head>
+
 <body>
 
-<form method="post" action="#" th:action="@{/signup}" class="login-form" th:object="${user}">
-  <fieldset>
-    <legend>sign up</legend>
-    <label for="username">User Name</label>
-    <input id="username" name="username" type="text" field="*{username}">
+<!--<form method="post" action="#" th:action="@{/signup}" class="login-form" th:object="${user}">-->
+<!--  <fieldset>-->
+<!--    <legend>sign up</legend>-->
+<!--    <label for="username">User Name</label>-->
+<!--    <input id="username" name="username" type="text" field="*{username}">-->
 
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" field="*{password}">
+<!--    <label for="password">Password</label>-->
+<!--    <input id="password" name="password" type="password" field="*{password}">-->
 
-    <label for="firstName">first name</label>
-    <input id="firstName" name="firstName" type="text" field="*{firstName}">
+<!--    <label for="firstName">first name</label>-->
+<!--    <input id="firstName" name="firstName" type="text" field="*{firstName}">-->
 
-    <label for="lastName">last name</label>
-    <input id="lastName" name="lastName" type="text" field="*{lastName}">
+<!--    <label for="lastName">last name</label>-->
+<!--    <input id="lastName" name="lastName" type="text" field="*{lastName}">-->
 
-    <label for="dateOfBirth">date of birth</label>
-    <input id="dateOfBirth" name="dateOfBirth" type="date" field="*{dateOfBirth}">
+<!--    <label for="dateOfBirth">date of birth</label>-->
+<!--    <input id="dateOfBirth" name="dateOfBirth" type="date" field="*{dateOfBirth}">-->
 
-    <label for="bio">bio</label>
-    <input id="bio" name="bio" type="text" field="*{bio}">
+<!--    <label for="bio">bio</label>-->
+<!--    <input id="bio" name="bio" type="text" field="*{bio}">-->
 
-    <label for="img">img Url</label>
-    <input id="img" name="img" type="String" field="*{img}">
-    <input type="submit" value="signup">
+<!--    <label for="img">img Url</label>-->
+<!--    <input id="img" name="img" type="String" field="*{img}">-->
+<!--    <input type="submit" value="signup">-->
 
-  </fieldset>
-</form>
+<!--  </fieldset>-->
+<!--</form>-->
+
+<div class="container-fluid text-center">
+  <br>
+  <br>
+  <!--    Check img src-->
+  <a href="https://imgbb.com/"><img style="max-width: 100px; margin: 0 auto;" src="https://i.ibb.co/yNHRMxF/1.png" alt="1" border="0"></a>
+  <img src="https://ibb.co/x2xscrq" alt="" srcset="" style="max-width: 100px; margin: 0 auto;">
+  <br>
+  <br>
+  <form method="post" action="#" th:action="@{/signup}" class="login-form p-3 rounded" th:object="${user}" style="max-width: 350px; margin: 0 auto;border-style: solid;
+  border-width: 1px;border-color: #F5D300;" >
+    <i style="font-size:30px;color:#F5D300" class="fas fa-sign-in-alt"><span style="font-family: 'Roboto', sans-serif;font-size:30px;font-weight: 1000; color:#F5D300">   Sign Up</span></i>
+    <br>
+    <br>
+    <label for="username"><i style="font-size:30px;color:#F5D300" class="fas fa-user"></i></label>
+    <input id="username" name="username" type="text" class="form-control" placeholder="Username" field="*{username}" required autofocus>
+    <br>
+    <label for="password"><i style="font-size:30px;color:#F5D300" class="fas fa-key"></i></label>
+    <input id="password" name="password" type="password" class="form-control" placeholder="Password" field="*{password}" required>
+    <br>
+    <label for="firstName"><i style="font-size:30px;color:#F5D300" class="fas fa-address-card"></i></label>
+    <input id="firstName" name="firstName" type="text" class="form-control" placeholder="First Name" field="*{firstName}" required>
+    <br>
+    <label for="lastName"><i style="font-size:30px;color:#F5D300" class="far fa-address-card"></i></label>
+    <input id="lastName" name="lastName" type="text" class="form-control" placeholder="Last Name" field="*{lastName}" required>
+    <br>
+    <label for="dateOfBirth"><i style="font-size:30px;color:#F5D300" class="far fa-calendar-alt"></i></label>
+    <input id="dateOfBirth" name="dateOfBirth" type="date" class="form-control" placeholder="Date Of Birth" field="*{dateOfBirth}" required>
+    <br>
+    <label for="bio"><i style="font-size:30px;color:#F5D300" class="far fa-file-alt"></i></label>
+<!--    <input id="bio" name="bio" type="text" class="form-control" placeholder="Bio" field="*{bio}" required>-->
+    <textarea class="form-control" id="bio" name="bio" placeholder="Bio" type="text" field="*{bio}" required></textarea>
+    <br>
+    <label for="img"><i style="font-size:30px;color:#F5D300" class="fas fa-image"></i></label>
+    <input id="img" name="img" type="url" class="form-control" placeholder="Image URL" field="*{img}" required>
+    <br>
+    <button type="submit" class="btn btn-warning"><i style="font-size:20px;color:black" class="fas fa-clipboard-check"><span style="font-family: 'Roboto', sans-serif;font-size:20px;font-weight: 1000; color:black">   Sign Up</span></i></button>
+  </form>
+  <br>
+  <br>
+</div>
 
 </body>
 </html>
