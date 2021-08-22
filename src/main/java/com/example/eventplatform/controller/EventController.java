@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -65,21 +66,101 @@ public class EventController {
         List<DbUser> users = (List<DbUser>) dbUserRepository.findAll();
         users.remove(me);
         users.removeAll(me.getFollowing());
+        model.addAttribute("me",me);
         model.addAttribute("users" ,users );
         model.addAttribute("following" ,me.getFollowing() );
         return "upCommingEvents.html";
     }
+//    @GetMapping("/upcommingevents")
+//    public String upcommingeventsId( Model model, @PathVariable("id") int id,Principal p) {
+//        Event event=eventRepository.findById(id).get();
+//        model.addAttribute("eventId",event);
+//        DbUser me=dbUserRepository.findByUsername(p.getName());
+//
+//        if (dbUserRepository.findByUsername(p.getName()).getFollowing().contains(event)){
+//            model.addAttribute("status",false);
+//
+//        }else {
+//            model.addAttribute("status",true);
+//            model.addAttribute("statusUnfollow",false);
+//        }
+//
+//        return "upCommingEvents.html";
+//    }
 
 
     @PostMapping("/deleteevent/{id}")
-    public RedirectView attend(@PathVariable("id") int id){
-
+    public RedirectView delete(@PathVariable("id") int id){
         Event event = eventRepository.findById(id).get();
         List<EventNeeds> eventNeeds= event.getEventNeeds();
         eventNeedsRepository.deleteAll(eventNeeds);
         eventRepository.delete(event);
         return new RedirectView("/profile");
     }
+    @PostMapping("/addoffer/{id}")
+    public RedirectView attendEvent(@RequestParam(value="0", required = false) boolean need1,@RequestParam(value="1", required = false) boolean need2,@RequestParam(value="2", required = false) boolean need3,@RequestParam(value="3", required = false) boolean need4,@RequestParam(value="4", required = false) boolean need5,Principal p,@PathVariable("id") int id){
+        Event event=eventRepository.findById(id).get();
+        System.out.println(event.getEventNeeds().get(0).getCount());
+       if(need1){
+           event.getEventNeeds().get(0).setCount(event.getEventNeeds().get(0).getCount()-1);
+           eventNeedsRepository.save(event.getEventNeeds().get(0));
+       }
+        if(need2){
+            event.getEventNeeds().get(1).setCount(event.getEventNeeds().get(1).getCount()-1);
+            eventNeedsRepository.save(event.getEventNeeds().get(1));
+        }
+        if(need3){
+            event.getEventNeeds().get(2).setCount(event.getEventNeeds().get(2).getCount()-1);
+            eventNeedsRepository.save(event.getEventNeeds().get(2));
+        }
+        if(need4){
+            event.getEventNeeds().get(3).setCount(event.getEventNeeds().get(3).getCount()-1);
+            eventNeedsRepository.save(event.getEventNeeds().get(3));
+        }
+        if(need5){
+            event.getEventNeeds().get(4).setCount(event.getEventNeeds().get(4).getCount()-1);
+            eventNeedsRepository.save(event.getEventNeeds().get(4));
+        }
+        DbUser me=dbUserRepository.findByUsername(p.getName());
+        event.getAttendance().add(me);
+        me.getAttendedTo().add(event);
+        eventRepository.save(event);
+        dbUserRepository.save(me);
+        return new RedirectView("/upcommingevents");
+    }
 
+
+
+
+    @PostMapping("/unattend/{id}")
+    public RedirectView unattend(@RequestParam(value="0", required = false) boolean need1,@RequestParam(value="1", required = false) boolean need2,@RequestParam(value="2", required = false) boolean need3,@RequestParam(value="3", required = false) boolean need4,@RequestParam(value="4", required = false) boolean need5,Principal p,@PathVariable("id") int id){
+        DbUser me=dbUserRepository.findByUsername(p.getName());
+        Event event=eventRepository.findById(id).get();
+        if(need1){
+            event.getEventNeeds().get(0).setCount(event.getEventNeeds().get(0).getCount()+1);
+            eventNeedsRepository.save(event.getEventNeeds().get(0));
+        }
+        if(need2){
+            event.getEventNeeds().get(1).setCount(event.getEventNeeds().get(1).getCount()+1);
+            eventNeedsRepository.save(event.getEventNeeds().get(1));
+        }
+        if(need3){
+            event.getEventNeeds().get(2).setCount(event.getEventNeeds().get(2).getCount()+1);
+            eventNeedsRepository.save(event.getEventNeeds().get(2));
+        }
+        if(need4){
+            event.getEventNeeds().get(3).setCount(event.getEventNeeds().get(3).getCount()+1);
+            eventNeedsRepository.save(event.getEventNeeds().get(3));
+        }
+        if(need5){
+            event.getEventNeeds().get(4).setCount(event.getEventNeeds().get(4).getCount()+1);
+            eventNeedsRepository.save(event.getEventNeeds().get(4));
+        }
+        me.getAttendedTo().remove(event);
+        event.getAttendance().remove(me);
+        dbUserRepository.save(me);
+        eventRepository.save(event);
+        return new RedirectView("/upcommingevents");
+    }
 
 }

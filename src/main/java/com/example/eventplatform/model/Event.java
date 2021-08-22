@@ -23,6 +23,14 @@ public class Event {
     @OneToMany(mappedBy = "event")
     List<EventNeeds> eventNeeds = new ArrayList<>();
 
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "attendance_attendedTo",
+            joinColumns = @JoinColumn(name = "attendedTo_id"),
+            inverseJoinColumns = @JoinColumn(name = "attendance_id"))
+    List<DbUser> attendance=new ArrayList<>();
+
+
     public Event(){
 
     }
@@ -108,5 +116,13 @@ public class Event {
 
     public void setEventNeeds(List<EventNeeds> eventNeeds) {
         this.eventNeeds = eventNeeds;
+    }
+
+    public List<DbUser> getAttendance() {
+        return attendance;
+    }
+
+    public void setAttendance(List<DbUser> attendance) {
+        this.attendance = attendance;
     }
 }
