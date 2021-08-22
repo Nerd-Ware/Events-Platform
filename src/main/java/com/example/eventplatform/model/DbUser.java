@@ -33,6 +33,9 @@ public class DbUser {
     @OneToMany(mappedBy = "user")
     List<Event> myEvents = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "attendance")
+    List<Event> attendedTo=new ArrayList<>();
+
 
 
     public DbUser(){
@@ -135,5 +138,14 @@ public class DbUser {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public List<Event> getAttendedTo() {
+        return attendedTo;
+    }
+
+    public void setAttendedTo(List<Event> attendedTo) {
+        this.attendedTo = attendedTo;
+
     }
 }
