@@ -16,6 +16,7 @@ public class Event {
     private int maxParticipant;
     private String img;
     private LocalDateTime createdAt;
+    private String address;
 
     @ManyToOne()
     DbUser user;
@@ -36,13 +37,14 @@ public class Event {
     }
 
 
-    public Event(String name, String description, String date, int maxParticipant, String img) {
+    public Event(String name, String description, String date, int maxParticipant, String img, String address) {
         this.name = name;
         this.description = description;
         this.date = date;
         this.maxParticipant = maxParticipant;
         this.img = img;
         this.createdAt= LocalDateTime.now();
+        this.address = address;
     }
 
 
@@ -118,11 +120,20 @@ public class Event {
         this.eventNeeds = eventNeeds;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public List<DbUser> getAttendance() {
         return attendance;
     }
 
     public void setAttendance(List<DbUser> attendance) {
         this.attendance = attendance;
+
     }
 }
