@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/regular.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+  <link href="https://www.primefaces.org/primeng-6-0-0-beta-1-released-primeicons/" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <style>
+.navbar-light .navbar-nav .nav-link { color:#F5D300;  font-size:18px; padding-left:12.5px;padding-right:12.5px}
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {color:#F5D300}
+.navbar-light .navbar-brand { color:#F5D300}
+.navbar-light .navbar-nav .nav-link:hover{
+background-color:#F5D300;
+border-radius: 5px;
+-webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+}
+.navbar-brand{
+width:80px;
+margin-left:10px
+}
+.navbar:hover{
+border-style: solid;
+  border-width: 1px;border-color: #F5D300;
+  -webkit-transition: all 1s ease;
+  transition: all 0.7s ease;
+  margin:0px;
+}
+
+
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #343a40;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:#f5d300;;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+
+
+
+    @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+	box-sizing: border-box;
+}
+
+
+
+h3 {
+	margin: 10px 0;
+}
+
+h6 {
+	margin: 5px 0;
+	text-transform: uppercase;
+}
+
+p {
+	font-size: 14px;
+	line-height: 21px;
+}
+
+.card-container {
+	background-color: #343A40;
+	border-radius: 5px;
+	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+	color: #B3B8CD;
+	padding-top: 30px;
+	position: relative;
+	width: 350px;
+	max-width: 100%;
+	text-align: center;
+}
+
+.card-container .pro {
+	color: #231E39;
+	background-color: #FEBB0B;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px 7px;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card-container .round {
+width: 200px;
+height: 200px;
+border: 1px solid #F5D300;
+	border-radius: 50%;
+	padding: 7px;
+}
+
+button.primary {
+	background-color: #F5D300;
+border: 1px solid #F5D300;
+	border-radius: 3px;
+	color: #231E39;
+	font-family: Montserrat, sans-serif;
+	font-weight: 500;
+	padding: 10px 25px;
+}
+
+button.primary.ghost {
+	background-color: transparent;
+	color: #F5D300;
+}
+
+.skills {
+	background-color: black;
+	text-align: left;
+	padding: 15px;
+	margin-top: 30px;
+}
+
+.skills ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.skills ul li {
+	border: 1px solid #2D2747;
+	border-radius: 2px;
+	display: inline-block;
+	font-size: 12px;
+	margin: 0 7px 7px 0;
+	padding: 7px;
+}
+
+.users-cards{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.h-100{
+margin-top: 3%;
+}
+
+body{
+background:whitesmoke;
+}
+
+</style>
+</head>
+<body>
+<div th:replace="header :: header">...</div>
+
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100">
+    <form method="post"  action="/searchuser">
+    <div class="searchbar">
+      <input class="search_input" type="text" name="search" placeholder="Search...">
+      <a href="#" class="search_icon"> <i class="fas fa-search" style="color: #febb0b;"></i></a>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="users-cards">
+<div class="card-container" th:each="user:${allUsers}">
+  <span class="pro">SUGGEST</span>
+  <img class="round" th:src="${user.img}" alt="user" />
+  <h3 th:text="${user.username}"></h3>
+  <h6>Bio</h6>
+  <p th:text="${user.bio}"></p>
+  <div class="buttons">
+    <a th:href="'/user/'+${user.id}"> <button class="primary">show profile</button> </a>
+      <form method="post" action="#" th:action="'/addfriend/'+${user.id}">
+        <button class="primary ghost" type="submit" >Follow</button>
+      </form>
+  </div>
+  <div class="skills">
+    <h6>Details</h6>
+    <ul>
+      <li>First Name: <span th:text="${user.firstName}"></span></li>
+      <li>Last Name: <span th:text="${user.lastName}"></span></li>
+      <li>birthday: <span th:text="${user.dateOfBirth}"></span></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!--<script>-->
+<!--  const searchFocus = document.getElementById('search-focus');-->
+<!--const keys = [-->
+<!--  { keyCode: 'AltLeft', isTriggered: false },-->
+<!--  { keyCode: 'ControlLeft', isTriggered: false },-->
+<!--];-->
+
+<!--window.addEventListener('keydown', (e) => {-->
+<!--  keys.forEach((obj) => {-->
+<!--    if (obj.keyCode === e.code) {-->
+<!--      obj.isTriggered = true;-->
+<!--    }-->
+<!--  });-->
+
+<!--  const shortcutTriggered = keys.filter((obj) => obj.isTriggered).length === keys.length;-->
+
+<!--  if (shortcutTriggered) {-->
+<!--    searchFocus.focus();-->
+<!--  }-->
+<!--});-->
+
+<!--window.addEventListener('keyup', (e) => {-->
+<!--  keys.forEach((obj) => {-->
+<!--    if (obj.keyCode === e.code) {-->
+<!--      obj.isTriggered = false;-->
+<!--    }-->
+<!--  });-->
+<!--});-->
+<!--</script>-->
+</body>
+</html>

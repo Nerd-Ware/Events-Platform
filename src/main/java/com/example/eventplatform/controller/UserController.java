@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -96,5 +95,80 @@ public class UserController {
         dbUserRepository.save(me);
         dbUserRepository.save(user);
         return new RedirectView("/user/{id}");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    String searchedUser = null;
+    @GetMapping("/findfriends")
+    public String findFriends( Model model, Principal p) {
+        if (searchedUser == null || searchedUser.equals("")){
+            List<DbUser> allUsers= (List<DbUser>)dbUserRepository.findAll();
+            DbUser me=dbUserRepository.findByUsername(p.getName());
+            allUsers.remove(me);
+            for (int i = 0; i < me.getFollowing().size(); i++) {
+                allUsers.remove(me.getFollowing().get(i));
+            }
+            model.addAttribute("allUsers",allUsers);
+        }else{
+            DbUser searched= dbUserRepository.findByUsername(searchedUser);
+            if (searched != null){
+                List<DbUser> searchedList =new ArrayList<>();
+                searchedList.add(searched);
+                model.addAttribute("allUsers",searchedList);
+                searchedUser = null;
+            }
+        }
+        return "findfriends.html";
+    }
+
+    @PostMapping("/searchuser")
+    public RedirectView searchUser(@RequestParam(value = "search") String username){
+        searchedUser = username;
+
+        return new RedirectView("/findfriends");
+    }
+
+
+    @PostMapping("/addfriend/{id}")
+    public RedirectView addFriend(@PathVariable("id") int id ,Principal p){
+        DbUser me=dbUserRepository.findByUsername(p.getName());
+        DbUser user=dbUserRepository.findById(id).get();
+        me.getFollowing().add(user);
+        user.getFollowers().add(me);
+        dbUserRepository.save(me);
+        dbUserRepository.save(user);
+        return new RedirectView("/findfriends");
     }
 }
