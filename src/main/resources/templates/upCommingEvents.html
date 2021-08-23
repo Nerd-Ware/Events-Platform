@@ -8,19 +8,31 @@
 <div class="followingEvents" th:each="user: ${following}">
     <div th:each="event : ${user.myEvents}">
         <p >following <span th:text="${event.name}"></span></p>
+
+
         <form method="POST" action="#" th:action="'/addoffer/'+ ${event.id}" th:if="${!me.attendedTo.contains(event)}">
             <div th:each="eventNeed: ${event.eventNeeds}">
-                <label th:text="${eventNeed.name}"></label>
-                <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}">
-
+                <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
+                <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">
             </div>
-            <input type="submit" value="attend">
+            <input type="submit" value="attend" th:if="${event.maxParticipant!=0}">
         </form>
+
+
         <form method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
-            <!--            <label th:text="${eventNeed.name}"></label>-->
-            <input type="hidden" th:name="${event.eventNeeds.indexOf(eventNeed)}" value="${eventNeed.name}">
-            <input type="submit" value="Un Attend">
+            <input type="submit" value="Un Attend" th:if="${event.maxParticipant!=0}" >
         </form>
+
+
+        <form method="post" action="#" th:action="'/closed/'+${event.id}" th:if="${event.maxParticipant==0}">
+                        <label th:text="closed"></label>
+        </form>
+
+
+        <form method="get" action="#" th:action="'/event/' + ${event.id}">
+            <button type="submit">Show Details</button>
+        </form>
+
     </div>
 </div>
 
@@ -29,17 +41,24 @@
         <p>all <span th:text="${event.name}"></span> </p>
         <form method="POST" action="#" th:action="'/addoffer/'+ ${event.id}" th:if="${!me.attendedTo.contains(event)}">
             <div th:each="eventNeed: ${event.eventNeeds}">
-                <label th:text="${eventNeed.name}"></label>
-                <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}">
+                <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
+                <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">
             </div>
-            <input type="submit" value="attend">
+            <input type="submit" value="attend" th:if="${event.maxParticipant!=0}">
         </form>
         <form method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
 <!--            <label th:text="${eventNeed.name}"></label>-->
             <input type="hidden" th:name="${event.eventNeeds.indexOf(eventNeed)}" value="${eventNeed.name}">
-            <input type="submit" value="Un Attend">
+            <input type="submit" value="Un Attend" >
         </form>
-    </div>
+
+        <form method="post" action="#" th:action="'/closed/'+${event.id}" th:if="${event.maxParticipant==0}">
+            <label th:text="closed"></label>
+        </form>
+
+        <form method="get" action="#" th:action="'/event/' + ${event.id}">
+            <button type="submit">Show Details</button>
+        </form>    </div>
 </div>
 
 
