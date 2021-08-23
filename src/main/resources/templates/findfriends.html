@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -18,6 +18,11 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="https://www.flaticon.com/premium-icon/icons/svg/2702/2702154.svg" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Raleway:wght@500&display=swap" rel="stylesheet">
   <style>
 .navbar-light .navbar-nav .nav-link { color:#F5D300;  font-size:18px; padding-left:12.5px;padding-right:12.5px}
 .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {color:#F5D300}
@@ -32,7 +37,7 @@ border-radius: 5px;
 width:80px;
 margin-left:10px
 }
-.navbar:hover{
+.navbar{
 border-style: solid;
   border-width: 1px;border-color: #F5D300;
   -webkit-transition: all 1s ease;
@@ -203,6 +208,227 @@ background:whitesmoke;
 }
 
 </style>
+  <style>   @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  font-family: Open Sans;
+}
+
+/* footer{
+	margin-top: 500px;
+} */
+section {
+  width: 100%;
+  display: inline-block;
+  background: #333;
+  /* height: 50vh; */
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed{
+	background-color:rgb(51, 56, 59);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:#F5D300;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:white;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-company-name{
+	color:  white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #F5D300;
+	color: black;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+.footer-distributed .footer-center i:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
+}
+.footer-distributed .footer-icons a:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-center p a{
+	color:  white;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:#ffffff;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #F5D300;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:#F5D300;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: black;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}</style>
 </head>
 <body>
 <div th:replace="header :: header">...</div>
@@ -272,5 +498,9 @@ background:whitesmoke;
 <!--  });-->
 <!--});-->
 <!--</script>-->
+<br>
+<br>
+<br>
+<div th:replace="footer2 :: footer2">...</div>
 </body>
 </html>

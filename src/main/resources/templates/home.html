@@ -22,7 +22,7 @@
     <!-- Google Fonts Roboto -->
     <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
     />
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
@@ -33,7 +33,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Raleway:wght@500&display=swap" rel="stylesheet">
     <style>
-
+    body{
+     font-family: 'Roboto', sans-serif;
+     }
     .navbar-light .navbar-nav .nav-link { color:#F5D300;  font-size:18px; padding-left:12.5px;padding-right:12.5px}
 .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {color:#F5D300}
 .navbar-light .navbar-brand { color:#F5D300}
@@ -47,9 +49,9 @@ border-radius: 5px;
 width:80px;
 margin-left:10px
 }
-.navbar:hover{
+.navbar{
 border-style: solid;
-  border-width: 1px;border-color: #F5D300;
+  border-width: 0.7px;border-color: #F5D300;
   -webkit-transition: all 1s ease;
   transition: all 0.7s ease;
   margin:0px;
@@ -78,7 +80,7 @@ section {
 }
 
 .footer-distributed{
-	background:#646a6f;
+	background-color:rgb(51, 56, 59);
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
@@ -109,13 +111,14 @@ section {
 }
 
 .footer-distributed h3 span{
-	color:  lightseagreen;
+	color:#F5D300;
+	font-family: 'Roboto', sans-serif;
 }
 
 /* Footer links */
 
 .footer-distributed .footer-links{
-	color:  #ffffff;
+	color:white;
 	margin: 20px 0 12px;
 	padding: 0;
 }
@@ -126,13 +129,15 @@ section {
   font-weight:400;
 	text-decoration: none;
 	color:  inherit;
+	font-family: 'Roboto', sans-serif;
 }
 
 .footer-distributed .footer-company-name{
-	color:  #222;
+	color:  white;
 	font-size: 14px;
 	font-weight: normal;
 	margin: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 /* Footer Center */
@@ -142,8 +147,8 @@ section {
 }
 
 .footer-distributed .footer-center i{
-	background-color:  #33383b;
-	color: #ffffff;
+	background-color:  #F5D300;
+	color: black;
 	font-size: 25px;
 	width: 38px;
 	height: 38px;
@@ -152,6 +157,16 @@ section {
 	line-height: 42px;
 	margin: 10px 15px;
 	vertical-align: middle;
+}
+.footer-distributed .footer-center i:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
+}
+.footer-distributed .footer-icons a:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
 }
 
 .footer-distributed .footer-center i.fa-envelope{
@@ -165,6 +180,7 @@ section {
   font-weight:400;
 	vertical-align: middle;
 	margin:0;
+	font-family: 'Roboto', sans-serif;
 }
 
 .footer-distributed .footer-center p span{
@@ -172,11 +188,13 @@ section {
 	font-weight: normal;
 	font-size:14px;
 	line-height:2;
+	font-family: 'Roboto', sans-serif;
 }
 
 .footer-distributed .footer-center p a{
-	color:  lightseagreen;
-	text-decoration: none;;
+	color:  white;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
 }
 
 .footer-distributed .footer-links a:before {
@@ -187,6 +205,7 @@ section {
   color: #fff;
   display: inline-block;
   padding-right: 5px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .footer-distributed .footer-links .link-1:before {
@@ -205,14 +224,16 @@ section {
 	font-size: 13px;
 	font-weight: normal;
 	margin: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 .footer-distributed .footer-company-about span{
 	display: block;
-	color:  #ffffff;
-	font-size: 14px;
+	color:  #F5D300;
+	font-size: 18px;
 	font-weight: bold;
 	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
 }
 
 .footer-distributed .footer-icons{
@@ -224,16 +245,17 @@ section {
 	width: 35px;
 	height: 35px;
 	cursor: pointer;
-	background-color:  #33383b;
+	background-color:#F5D300;
 	border-radius: 2px;
 
 	font-size: 20px;
-	color: #ffffff;
+	color: black;
 	text-align: center;
 	line-height: 35px;
 
 	margin-right: 3px;
 	margin-bottom: 5px;
+	font-family: 'Roboto', sans-serif;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
@@ -270,11 +292,11 @@ section {
             <img style="width:800px" src="https://www.edson.ca/public/uploads/images/volunteers/1570139260-960w_volunteers.jpg" class="d-block w-100" alt="...">
             <div style="grid-template-columns: 1fr 1fr;display: grid;
            margin-bottom:150px" class="carousel-caption">
-                <div style="margin-top:170px;margin-left:70px">
-                    <form class="d-flex">
-                    <button class="btn btn-warning" type="submit"><i class="fas fa-hands-helping " style="font-size:30px;padding:10px"><span style="font-family: 'Roboto', sans-serif; font-size:30px;padding:10px">  Get Start</span></i></button>
+                <div style="margin-top:100px;margin-left:70px">
+                    <form class="d-flex" action="/login">
+                  <button class="btn btn-warning" type="submit"><i class="fas fa-hands-helping " style="font-size:30px;padding:10px"><span style="font-family: 'Roboto', sans-serif; font-size:30px;padding:10px">  Get Start</span></i></button> </a>
                 </form></div>
-                <div style="background-color:rgba(245,211,0,0.6);padding:20px;border-radius: 20px; color:black">
+                <div style="background-color:rgba(245,211,0,0.6);padding:20px;border-radius: 20px; color:black;margin-bottom:50%">
                     <h1>Welcome to Knowledgewell</h1>
                     <p>KnowledgeWell, a public US 501c3 tax exempt not-for-profit organization, was founded in 2005 by a group of UNC Business School Weekend Executive MBAs inspired to share their business capabilities with the world and to deliver expertise to emerging and under-resourced areas. KnowledgeWell relies on a strong team of companies and individuals who are motivated to transform the barriers faced by under-resourced nations into opportunities for successful business enterprise. Often described as a “Doctors without Borders” concept for business professionals, its goals are to enable nations to become more self-sufficient, increase their visibility in the global marketplace and create awareness of sustainable, environmentally friendly business practices.</p>
                 </div>

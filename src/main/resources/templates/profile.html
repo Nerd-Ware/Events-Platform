@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/regular.min.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
     <link href="https://www.primefaces.org/primeng-6-0-0-beta-1-released-primeicons/" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -18,8 +21,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="https://www.flaticon.com/premium-icon/icons/svg/2702/2702154.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Raleway:wght@500&display=swap" rel="stylesheet">
     <style>
-        h2,h4{
+        h2,h3,h5{
         color:#F5D300;
         }
         p{
@@ -47,9 +55,9 @@ border-radius: 5px;
 width:80px;
 margin-left:10px
 }
-.navbar:hover{
+.navbar{
 border-style: solid;
-  border-width: 1px;border-color: #F5D300;
+  border-width: 0.7px;border-color: #F5D300;
   -webkit-transition: all 1s ease;
   transition: all 0.7s ease;
   margin:0px;
@@ -201,8 +209,232 @@ overflow-y: scroll;
 height: 83vh;
 scrollbar-width: thin;
 }
+    </style>
+    <style>
 
 
+
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  font-family: Open Sans;
+}
+
+/* footer{
+	margin-top: 500px;
+} */
+section {
+  width: 100%;
+  display: inline-block;
+  background: #333;
+  /* height: 50vh; */
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed{
+	background-color:rgb(51, 56, 59);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:#F5D300;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:white;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-company-name{
+	color:  white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #F5D300;
+	color: black;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+.footer-distributed .footer-center i:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
+}
+.footer-distributed .footer-icons a:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-center p a{
+	color:  white;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:#ffffff;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #F5D300;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:#F5D300;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: black;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}
     </style>
 </head>
 <body>
@@ -217,38 +449,38 @@ min-height: 450px;">
         <img class="card-img-top" th:src="${me.img}" style="border-radius: 50%;width:290px;height:290px;border-style: solid;
   border-width: 5px;border-color: white;" alt="Card image cap">
         <div class="card-body" >
-            <h2 class="card-title" th:text="${me.username}" style="margin-left:16%" ></h2>
+            <h2  class="card-title" style="margin-left:16%;" ><i class="fas fa-user-tie" style="font-weight: 900;"><span class="font" style="font-family: 'Roboto', sans-serif; margin-left:10px;font-weight: 900;" th:text="${me.username}"></span></i></h2>
         </div>
         </div>
         <div>
         <div class="card-body" >
-            <h4 class="card-title">First Name</h4>
+            <h3 class="card-title"><i class="fas fa-id-card-alt"><span style="font-family: 'Roboto', sans-serif">  First Name</span></i></h3>
             <p class="card-text" th:text="${me.firstName}"></p>
         </div>
         <div class="card-body">
-            <h4 class="card-title">Last Name</h4>
+            <h3 class="card-title"> <i class="far fa-address-card"><span style="font-family: 'Roboto', sans-serif">  Last Name</span></i></h3>
             <p class="card-text" th:text="${me.lastName}"></p>
         </div>
         <div class="card-body">
-            <h4 class="card-title">Bio</h4>
+            <h3 class="card-title"><i class="fas fa-file-signature"></i><span style="font-family: 'Roboto', sans-serif">  Bio</span></h3>
             <p class="card-text" th:text="${me.bio}"></p>
         </div>
         <div class="card-body">
-            <h4 class="card-title">Date Of Birth</h4>
+            <h3 class="card-title"><i class="fas fa-calendar-day"><span style="font-family: 'Roboto', sans-serif">  Date Of Birth</span></i></h3>
             <p class="card-text" th:text="${me.dateOfBirth}"></p>
         </div>
         </div>
         <div>
             <div class="card-body">
-                <h4 class="card-title">followers</h4>
+                <h5 class="card-title"><i class="fas fa-user-friends"><span style="font-family: 'Roboto', sans-serif">  Followers</span></i></h5>
                 <p class="card-text" th:text="${me.followers.size()}"></p>
             </div>
             <div class="card-body">
-                <h4 class="card-title">following</h4>
+                <h5 class="card-title"><i class="fas fa-users"><span style="font-family: 'Roboto', sans-serif">  Following</span></i></h5>
                 <p class="card-text" th:text="${me.following.size()}"></p>
             </div>
-            <button id="updateButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Add Event
+            <button id="updateButton" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-plus-circle"><span style="font-family: 'Roboto', sans-serif;padding:10px"> Add Event</span></i>
             </button>
 
 
@@ -258,7 +490,7 @@ min-height: 450px;">
 
     <div class="events-card">
         <div class="myevents" >
-            <h2 style="color:black; text-align: center;"><i class="fas fa-calendar-check"></i> <span>my events</span> </h2>
+            <h2 style="color:black; text-align: center;"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;">  My Events</span></i></h2>
 
             <div class="scroll">
             <div class="infocardContainer" th:each="event : ${me.myEvents}">
@@ -282,7 +514,7 @@ min-height: 450px;">
 
 
         <div class="attend-events">
-            <h2 style="color:black; text-align: center;"> <i class="far fa-calendar-alt"><span>attended events</span> </i></h2>
+            <h2 style="color:black; text-align: center;"> <i class="far fa-calendar-alt"><span style="font-family: 'Roboto', sans-serif; font-weight: bolder;">  Attended Events</span> </i></h2>
             <div class="infocardContainer">
                 <div class="main">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Dog_coat_variation.png"></img>
@@ -317,9 +549,9 @@ min-height: 450px;">
 
 
 <!--    <button id="updateButton">add new event</button>-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:#F5D300" >
+        <div class="modal-dialog" role="document" style="">
+            <div class="modal-content" style="border-width: 0.7px;border-color: #F5D300;background-color:black;">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -366,7 +598,7 @@ min-height: 450px;">
                         <div id="needs"></div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-warning">Submit</button>
                         </div>
 
                     </form>
@@ -408,7 +640,7 @@ min-height: 450px;">
 <!--    </form>-->
 
 </main>
-
+<div th:replace="footer2 :: footer2">...</div>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -445,5 +677,7 @@ $('#myModal').modal({
 })
 
 </script>
+
 </body>
 </html>
+
