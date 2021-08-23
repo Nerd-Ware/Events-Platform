@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 th:text="${specificEvent.name}"></h2>
+<h2 th:text="${specificEvent.description}"></h2>
+<h2 th:text="${specificEvent.date}"></h2>
+
+    <form method="POST" action="#" th:action="'/attendFromSpecificPage/'+ ${specificEvent.id}" th:if="${!me.attendedTo.contains(specificEvent)}">
+    <div th:each="eventNeed: ${specificEvent.eventNeeds}">
+        <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
+        <input type="checkbox" th:name="${specificEvent.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">
+    </div>
+    <input type="submit" value="attend" th:if="${specificEvent.maxParticipant!=0}">
+</form>
+
+<form method="post" action="#" th:action="'/unAttendFromSpecificPage/'+${specificEvent.id}" th:if="${me.attendedTo.contains(specificEvent)}" >
+    <input type="submit" value="Un Attend"  >
+</form>
+
+
+<form method="post" action="#" th:action="'/closedFromSpecificEvent/'+${specificEvent.id}" th:if="${specificEvent.maxParticipant==0}">
+    <label th:text="closed"></label>
+</form>
+
+
+</body>
+</html>
