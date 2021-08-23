@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/regular.min.css" rel="stylesheet" type="text/css" />
@@ -37,7 +37,6 @@ border-radius: 5px;
 width:80px;
 margin-left:10px
 }
-
 
 
 
@@ -430,38 +429,38 @@ transition:0.3s;
 
 <div class="container h-100">
   <div class="d-flex justify-content-center h-100">
-    <form method="post"  action="/searchuser">
-    <div class="searchbar">
-      <input class="search_input" type="text" name="search" placeholder="Search...">
-      <a href="#" class="search_icon"> <i class="fas fa-search" style="color: #febb0b;"></i></a>
-    </div>
+    <form method="post"  action="/searchfriend">
+      <div class="searchbar">
+        <input class="search_input" type="text" name="search" placeholder="Search...">
+        <a href="#" class="search_icon"> <i class="fas fa-search" style="color: #febb0b;"></i></a>
+      </div>
     </form>
   </div>
 </div>
 
 
 <div class="users-cards">
-<div class="card-container" th:each="user:${allUsers}">
-  <span class="pro" th:if="${followers.contains(user)}">follower</span>
-  <img class="round" th:src="${user.img}" alt="user" />
-  <h3 th:text="${user.username}"></h3>
-  <h6>Bio</h6>
-  <p th:text="${user.bio}"></p>
-  <div class="buttons">
-    <a th:href="'/user/'+${user.id}"> <button class="primary">Profile</button> </a>
-      <form method="post" action="#" th:action="'/addfriend/'+${user.id}">
-        <button class="primary ghost" type="submit" >Follow</button>
+  <div class="card-container" th:each="user:${allUsers}">
+    <span class="pro" th:if="${followers.contains(user)}">follower</span>
+    <img class="round" th:src="${user.img}" alt="user" />
+    <h3 th:text="${user.username}"></h3>
+    <h6>Bio</h6>
+    <p th:text="${user.bio}"></p>
+    <div class="buttons">
+      <a th:href="'/user/'+${user.id}"> <button class="primary">Profile</button> </a>
+      <form method="post" action="#" th:action="'/unfriend/'+${user.id}">
+        <button class="primary ghost" type="submit" >Unfollow</button>
       </form>
+    </div>
+    <div class="skills">
+      <h6>Details</h6>
+      <ul>
+        <li>First Name: <span th:text="${user.firstName}"></span></li>
+        <li>Last Name: <span th:text="${user.lastName}"></span></li>
+        <li>birthday: <span th:text="${user.dateOfBirth}"></span></li>
+      </ul>
+    </div>
   </div>
-  <div class="skills">
-    <h6>Details</h6>
-    <ul>
-      <li>First Name: <span th:text="${user.firstName}"></span></li>
-      <li>Last Name: <span th:text="${user.lastName}"></span></li>
-      <li>birthday: <span th:text="${user.dateOfBirth}"></span></li>
-    </ul>
-  </div>
-</div>
 </div>
 
 <br>

@@ -27,11 +27,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Raleway:wght@500&display=swap" rel="stylesheet">
     <style>
+
+    main{
+    display: grid;
+    grid-template-columns: 400px auto;
+}
+
+.search-addEvent{
+display: grid;
+grid-template-columns: 3fr 1fr;
+margin: 8% 0px;
+}
+
+h4{
+    font-size: 1.2rem;
+}
+
+
+
+
         h2,h3,h5{
-        color:#F5D300;
+        color:#212529;
         }
         p{
-        color:white;
+        color:#212529;
         }
 
         #input0 ,
@@ -55,19 +74,14 @@ border-radius: 5px;
 width:80px;
 margin-left:10px
 }
-.navbar{
-border-style: solid;
-  border-width: 0.7px;border-color: #F5D300;
-  -webkit-transition: all 1s ease;
-  transition: all 0.7s ease;
-  margin:0px;
-}
 
 #updateButton{
-margin-top:25%;
+margin-top:3%;
 }
 
-
+.bg-dark {
+    background-color: #343a40 !important;
+}
 
 
 
@@ -108,9 +122,7 @@ a:hover {
   height: 200px;
   width: 200px;
   border-radius: 100px;
-  background: rgb(0,159,255);
-<!--  background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgba(0,159,255,1) 100%);-->
-background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgb(0, 0, 0) 100%);
+  background: rgb(33, 37, 41);
   transition: all 500ms ease-in;
   transition-delay: 1s;
   margin: auto;
@@ -121,7 +133,7 @@ background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgb(0, 0, 0) 100%);
   width: 500px;
   border-radius: 100px 10px 100px 100px;
   transition: all 1s ease-out;
-  background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgb(0, 0, 0) 100%);
+  background: rgb(33, 37, 41);
 }
 
 .infocardContainer div {
@@ -168,7 +180,7 @@ background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgb(0, 0, 0) 100%);
   transition: none;
   display: float;
   position: relative;
-  border: 10px solid white;
+  border: 3px solid white;
   margin: 0 0 0 0; padding: 0 0 0 0;
 }
 .infocardContainer .textbois {
@@ -207,8 +219,73 @@ background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgb(0, 0, 0) 100%);
 .scroll{
 overflow-y: scroll;
 height: 83vh;
-scrollbar-width: thin;
+border-right: 1px solid #3c3c3c17;
+scrollbar-width: none;
 }
+
+
+
+
+
+
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #343a40;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:#f5d300;;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+
+
+
+    .following-followers{
+    display: flex;
+    justify-content: center;
+    margin-left: 7%;
+    width: 340px;
+}
+
+h5{
+font-size:1.1rem;
+}
+
     </style>
     <style>
 
@@ -442,73 +519,109 @@ transition:0.3s;
 <div th:replace="header :: header">...</div>
 
 <main>
-    <div style="width: 100%;grid-template-columns: 1fr 1fr 1fr;display: grid;gap:10px;background: rgb(8,121,99);
-background: linear-gradient(180deg, rgb(8, 121, 99) 0%, rgb(0, 0, 0) 0%, rgb(22, 22, 22) 6%, rgb(103, 103, 103) 60%, rgb(200, 200, 200) 87%, rgb(245, 249, 248) 100%, rgb(224, 224, 224) 100%);
-min-height: 450px;">
-        <div style="margin-left:20%;margin-top:3%">
-        <img class="card-img-top" th:src="${me.img}" style="border-radius: 50%;width:290px;height:290px;border-style: solid;
+
+
+    <div class="user-info" style="border-right: solid 1px #3232321a;">
+        <div >
+            <div style="margin-left:13%;margin-top:3%">
+                <img class="card-img-top" th:src="${me.img}" style="border-radius: 50%;width:290px;height:290px;border-style: solid;
   border-width: 5px;border-color: white;" alt="Card image cap">
-        <div class="card-body" >
-            <h2  class="card-title" style="margin-left:16%;" ><i class="fas fa-user-tie" style="font-weight: 900;"><span class="font" style="font-family: 'Roboto', sans-serif; margin-left:10px;font-weight: 900;" th:text="${me.username}"></span></i></h2>
-        </div>
-        </div>
-        <div>
-        <div class="card-body" >
-            <h3 class="card-title"><i class="fas fa-id-card-alt"><span style="font-family: 'Roboto', sans-serif">  First Name</span></i></h3>
-            <p class="card-text" th:text="${me.firstName}"></p>
-        </div>
-        <div class="card-body">
-            <h3 class="card-title"> <i class="far fa-address-card"><span style="font-family: 'Roboto', sans-serif">  Last Name</span></i></h3>
-            <p class="card-text" th:text="${me.lastName}"></p>
-        </div>
-        <div class="card-body">
-            <h3 class="card-title"><i class="fas fa-file-signature"></i><span style="font-family: 'Roboto', sans-serif">  Bio</span></h3>
-            <p class="card-text" th:text="${me.bio}"></p>
-        </div>
-        <div class="card-body">
-            <h3 class="card-title"><i class="fas fa-calendar-day"><span style="font-family: 'Roboto', sans-serif">  Date Of Birth</span></i></h3>
-            <p class="card-text" th:text="${me.dateOfBirth}"></p>
-        </div>
-        </div>
-        <div>
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-user-friends"><span style="font-family: 'Roboto', sans-serif">  Followers</span></i></h5>
-                <p class="card-text" th:text="${me.followers.size()}"></p>
+                <div class="card-body" >
+                    <h2  class="card-title" style="margin-left:10%;" ><i class="fas fa-user-tie" style="font-weight: 900;"><span class="font" style="font-family: 'Roboto', sans-serif; margin-left:10px;font-weight: 900;" th:text="${me.username}"></span></i></h2>
+                </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-users"><span style="font-family: 'Roboto', sans-serif">  Following</span></i></h5>
-                <p class="card-text" th:text="${me.following.size()}"></p>
+
+            <div class="card-body" style="margin-left: 30%;">
+                <h4 class="card-title" style="margin-left: 10%;"><i class="fas fa-file-signature"></i><span style="font-family: 'Roboto', sans-serif" >  Bio</span></h4>
+                <p class="card-text" th:text="${me.bio}"></p>
             </div>
-            <button id="updateButton" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
-                <i class="fas fa-plus-circle"><span style="font-family: 'Roboto', sans-serif;padding:10px"> Add Event</span></i>
-            </button>
 
 
+            <div class="following-followers">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-user-friends"> <span style="font-family: 'Roboto', sans-serif" th:text="' '+${me.followers.size()}+' Followers'"></span></i></h5>
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-user-friends"> <span style="font-family: 'Roboto', sans-serif" th:text="' '+${me.following.size()}+' Following'"></span></i></h5>
+            </div>
+        </div>
+
+
+            <div>
+                <div class="fullNmae" style="display: flex; justify-content: center; margin-left: 7%; width: 340px;">
+                    <div class="card-body" >
+                        <h4 class="card-title"><i class="fas fa-id-card-alt"><span style="font-family: 'Roboto', sans-serif">  First Name</span></i></h4>
+                        <p class="card-text" th:text="${me.firstName}"></p>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"> <i class="far fa-address-card"><span style="font-family: 'Roboto', sans-serif">  Last Name</span></i></h4>
+                        <p class="card-text" th:text="${me.lastName}"></p>
+                    </div>
+                </div>
+
+
+                <div class="card-body"   style="margin-left: 30%;">
+                    <h4 class="card-title" style="margin-left: -8%;"><i class="fas fa-calendar-day"><span style="font-family: 'Roboto', sans-serif">  Date Of Birth</span></i></h4>
+                    <p class="card-text" th:text="${me.dateOfBirth}"></p>
+                </div>
+            </div>
+            <div>
+
+
+
+
+            </div>
         </div>
     </div>
 
+
+
+<div class="events">
+
+    <div class="search-addEvent">
+        <div class="container h-100">
+            <div class="d-flex justify-content-center h-100">
+                <form method="post"  action="/searchfriend">
+                    <div class="searchbar">
+                        <input class="search_input" type="text" name="search" placeholder="Search...">
+                        <a href="#" class="search_icon"> <i class="fas fa-search" style="color: #febb0b;"></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+<div>
+    <button id="updateButton" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+        <i class="fas fa-plus-circle"><span style="font-family: 'Roboto', sans-serif;padding:10px"> Add Event</span></i>
+    </button>
+</div>
+
+
+
+    </div>
 
     <div class="events-card">
         <div class="myevents" >
             <h2 style="color:black; text-align: center;"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;">  My Events</span></i></h2>
 
             <div class="scroll">
-            <div class="infocardContainer" th:each="event : ${me.myEvents}">
-                <div class="main">
-                    <img th:src="${event.img}"></img>
-                </div>
-                <div class="textbois">
-                    <h3 th:text="${event.name}"></h3>
-                    <h5 th:text="${event.date}"></h5>
-                    <p th:text="${event.description}"></p>
-                    <p> max number of participant<span th:text="${event.maxParticipant}"></span></p>
-                    <div class="hotlinks">
-                        <form action="#" th:action="'/deleteevent/'+ ${event.id}" method="post" >
-                            <button type="submit" style="color:black;"> delete event</button>
-                        </form>
+                <div class="infocardContainer" th:each="event : ${me.myEvents}">
+                    <div class="main">
+                        <img th:src="${event.img}"></img>
+                    </div>
+                    <div class="textbois">
+                        <h3 th:text="${event.name}"></h3>
+                        <h5 th:text="${event.date}"></h5>
+                        <p th:text="${event.description}"></p>
+                        <p> max number of participant<span th:text="${event.maxParticipant}"></span></p>
+                        <div class="hotlinks">
+                            <form action="#" th:action="'/deleteevent/'+ ${event.id}" method="post" >
+                                   <button type="submit" style="color:black;">delete event</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
 
@@ -532,6 +645,9 @@ min-height: 450px;">
 
         </div>
     </div>
+</div>
+
+
 
 <!--    <div th:each="event : ${me.myEvents}" style="border: solid 2px black">-->
 <!--    <p th:text="${event.name}"></p>-->
