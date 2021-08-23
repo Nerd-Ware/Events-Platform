@@ -137,9 +137,7 @@ public class UserController {
             List<DbUser> allUsers= (List<DbUser>)dbUserRepository.findAll();
             DbUser me=dbUserRepository.findByUsername(p.getName());
             allUsers.remove(me);
-            for (int i = 0; i < me.getFollowing().size(); i++) {
-                allUsers.remove(me.getFollowing().get(i));
-            }
+                allUsers.removeAll(me.getFollowing());
             model.addAttribute("allUsers",allUsers);
         }else{
             DbUser searched= dbUserRepository.findByUsername(searchedUser);
@@ -150,6 +148,7 @@ public class UserController {
                 searchedUser = null;
             }
         }
+        model.addAttribute("followers",dbUserRepository.findByUsername(p.getName()).getFollowers());
         return "findfriends.html";
     }
 
@@ -170,5 +169,46 @@ public class UserController {
         dbUserRepository.save(me);
         dbUserRepository.save(user);
         return new RedirectView("/findfriends");
+    }
+
+
+
+    String searchedFriend = null;
+    @GetMapping("/myfriends")
+    public String myFriends(Principal p,Model model){
+
+        if (searchedFriend == null || searchedFriend.equals("")){
+            DbUser me = dbUserRepository.findByUsername(p.getName());
+            model.addAttribute("allUsers",me.getFollowing());
+        }else{
+            DbUser searched= dbUserRepository.findByUsername(searchedFriend);
+            if (searched != null && dbUserRepository.findByUsername(p.getName()).getFollowing().contains(searched)){
+                List<DbUser> searchedList =new ArrayList<>();
+                searchedList.add(searched);
+                model.addAttribute("allUsers",searchedList);
+            }
+        }
+        searchedFriend = null;
+        model.addAttribute("followers",dbUserRepository.findByUsername(p.getName()).getFollowers());
+        return "myfriends";
+    }
+
+    @PostMapping("/unfriend/{id}")
+    public RedirectView unFriend(@PathVariable("id") int id ,Principal p){
+        DbUser me=dbUserRepository.findByUsername(p.getName());
+        DbUser user=dbUserRepository.findById(id).get();
+        me.getFollowing().remove(user);
+        user.getFollowers().remove(me);
+        dbUserRepository.save(me);
+        dbUserRepository.save(user);
+        return new RedirectView("/myfriends");
+    }
+
+
+    @PostMapping("/searchfriend")
+    public RedirectView searchFriend(@RequestParam(value = "search") String username){
+        searchedFriend = username;
+
+        return new RedirectView("/myfriends");
     }
 }
