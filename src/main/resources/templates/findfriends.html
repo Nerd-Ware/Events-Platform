@@ -423,7 +423,20 @@ transition:0.3s;
 		margin-left: 0;
 	}
 
-}</style>
+}
+.new:hover{
+background-color:#F5D300 !important;
+border-radius: 5px !important;
+-webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+  color:#343a40 !important;
+}
+.new{
+color:#F5D300 !important;
+border-bottom: solid 1px #ffffff36 !important;
+width: 170px;
+}
+</style>
 </head>
 <body>
 <div th:replace="header :: header">...</div>
@@ -443,7 +456,7 @@ transition:0.3s;
 <div class="users-cards">
 <div class="card-container" th:each="user:${allUsers}">
   <span class="pro" th:if="${followers.contains(user)}">follower</span>
-  <img class="round" th:src="${user.img}" alt="user" />
+  <img class="round" th:src="${user.img}" alt="user" onerror="this.src='https://www.w3schools.com/howto/img_avatar.png'" />
   <h3 th:text="${user.username}"></h3>
   <h6>Bio</h6>
   <p th:text="${user.bio}"></p>

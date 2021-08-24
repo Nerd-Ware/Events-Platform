@@ -25,6 +25,17 @@ border-radius: 5px;
 -webkit-transition: all 1s ease;
   transition: all 0.5s ease;
 }
+.new:hover{
+background-color:#F5D300 !important;
+border-radius: 5px !important;
+-webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+  color:#343a40 !important;
+}
+.new{
+color:#F5D300 !important;
+border-bottom: solid 1px #ffffff36 !important;
+}
 .navbar-brand{
 width:80px;
 margin-left:10px
@@ -56,15 +67,15 @@ border-style: solid;
                     <a class="nav-link" aria-current="page" href="/profile"  sec:authorize="isAuthenticated()"><i class="fas fa-house-user"><span style="font-family: 'Roboto', sans-serif;">   profile</span></i></a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/myfriends" sec:authorize="isAuthenticated()"><i class="fas fa-users"><span style="font-family: 'Roboto', sans-serif;">   My Friends</span></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/upcommingevents" sec:authorize="isAuthenticated()"><i class="fas fa-calendar-plus"><span style="font-family: 'Roboto', sans-serif;">   Upcoming Event</span></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/findfriends"><i class="fas fa-user-plus" sec:authorize="isAuthenticated()" ><span style="font-family: 'Roboto', sans-serif;">   Find Friends</span></i></a>
-                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" aria-current="page" href="/myfriends" sec:authorize="isAuthenticated()"><i class="fas fa-users"><span style="font-family: 'Roboto', sans-serif;">   My Friends</span></i></a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" aria-current="page" href="/upcommingevents" sec:authorize="isAuthenticated()"><i class="fas fa-calendar-plus"><span style="font-family: 'Roboto', sans-serif;">   Upcoming Event</span></i></a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/findfriends"><i class="fas fa-user-plus" sec:authorize="isAuthenticated()" ><span style="font-family: 'Roboto', sans-serif;">   Find Friends</span></i></a>-->
+<!--                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="/aboutus"><i class="fas fa-address-card" sec:authorize="isAuthenticated()" ><span style="font-family: 'Roboto', sans-serif;">   About Us</span></i></a>
                 </li>
@@ -79,10 +90,23 @@ border-style: solid;
                 <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()" >
                     <i class="fas fa-user-circle"><span style="font-family: 'Roboto', sans-serif; margin-left:10px" sec:authentication="name"></span></i>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color:black;border-style:solid;border-width: 1px;border-color: #F5D300;">
-                    <form class="d-flex" method="get" sec:authorize="isAuthenticated()">
-                        <a href="/perform_logout" class="nav-link" type="submit"><i class="fas fa-sign-out-alt" style="color:#F5D300"><span style="font-family: 'Roboto', sans-serif; color:#F5D300">  Sign out</span></i></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color:#343a40!important;border-style:solid;border-width: 1px;border-color:#F5D300; padding:right:10px ">
+                    <li class="nav-item">
+                    <form  method="get" sec:authorize="isAuthenticated()">
+
+                        <a href="/perform_logout" class="nav-link new" type="submit"><i class="fas fa-sign-out-alt"><span style="font-family: 'Roboto', sans-serif;">  Sign out</span></i></a>
+
                     </form>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link new" aria-current="page" href="/myfriends" sec:authorize="isAuthenticated()"><i class="fas fa-users"><span style="font-family: 'Roboto', sans-serif;">   My Friends</span></i></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link new" aria-current="page" href="/upcommingevents" sec:authorize="isAuthenticated()"><i class="fas fa-calendar-plus"><span style="font-family: 'Roboto', sans-serif;">   Upcoming Event</span></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link new" href="/findfriends"><i class="fas fa-user-plus" sec:authorize="isAuthenticated()" ><span style="font-family: 'Roboto', sans-serif;">   Find Friends</span></i></a>
+                    </li>
                 </div>
             </div>
         </div>

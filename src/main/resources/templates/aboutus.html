@@ -303,6 +303,18 @@ transition:0.3s;
 	}
 
 }
+.new:hover{
+background-color:#F5D300 !important;
+border-radius: 5px !important;
+-webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+  color:#343a40 !important;
+}
+.new{
+color:#F5D300 !important;
+border-bottom: solid 1px #ffffff36 !important;
+width: 170px;
+}
     </style>
     <style>
 <!--    body {-->
@@ -423,6 +435,10 @@ color:white;
   color: #212529;
   background-color: #f7f5ec;
 }
+h1,h2,h3,h4,h5,p{
+font-family: 'Roboto', sans-serif;
+}
+
 </style>
 </head>
 <body>
@@ -495,7 +511,7 @@ color:white;
                 <ul class="social">
                     <li><a href="https://web.facebook.com/profile.php?id=100001893277989" class="fa fa-facebook" aria-hidden="true"></a></li>
                     <li><a href="#" class="fa fa-twitter" aria-hidden="true"></a></li>
-                    <li><a href="https://www.linkedin.com/in/baraa-al-osaily-732513147/" class="fa github" aria-hidden="true"></a></li>
+                    <li><a href="https://www.linkedin.com/in/baraa-al-osaily-732513147/" class="fa fa-github" aria-hidden="true"></a></li>
                     <li><a href="https://github.com/baraaAlosaily" class="fa fa-linkedin" aria-hidden="true"></a></li>
                 </ul>
             </div>
@@ -506,7 +522,7 @@ color:white;
 
 
 <br>
-<form method="post" action="/aboutus"  class=" p-3 rounded" style="max-width: 350px; margin: 0 auto; background-color: #212529;">
+<form method="post" action="/aboutus"  class=" p-3 rounded" style="max-width: 350px; margin: 0 auto; background-color: #343a40;">
     <div class="mb-3">
     <label for="email" class="form-label"><i style="font-size:20px;color:#F5D300" class="fas fa-envelope"><span style="font-family: 'Roboto', sans-serif;">  Email</span></i></label>
     <input name="email" class="form-control" id="email" type="text" placeholder="your email">
@@ -526,15 +542,15 @@ color:white;
 <!--</div>-->
 <br><br>
 <div class="cont" style=" overflow-y:scroll;height:320px;margin-right:300px;">
-<div class="card w-75 "  style="margin-left:300px;margin-right:auto;margin-top:20px;background-color:#444444;width:1000px" th:each="feedback: ${allFeedbacks}">
+<div class="card w-75 "  style="margin-left:300px;margin-right:auto;margin-top:20px;background-color:#343a40;width:1000px" th:each="feedback: ${allFeedbacks}">
     <div class="card-body" style="grid-template-columns: 1fr 100px;display: grid;">
         <div>
-        <h5 class="card-title" style="color:white"><i class="fas fa-user" style="color:white;margin-right:0.5%"></i><span th:text="${feedback.username}"></span></h5>
+        <h5 class="card-title" style="color:white"><i class="fas fa-user" style="color:white;margin-right:0.5%"></i><span style="font-family: 'Roboto', sans-serif;" th:text="${feedback.username}"></span></h5>
             <br>
-        <p class="card-text" style="color:white"><i class="fas fa-comment" style="color:white;margin-right:0.5%"></i><span th:text="${feedback.body}"></span></p>
+        <p class="card-text" style="color:white"><i class="fas fa-comment" style="color:white;margin-right:0.5%"></i><span style="font-family: 'Roboto', sans-serif;" th:text="${feedback.body}"></span></p>
         </div>
         <div>
-            <p class="card-text" style="color:white;font-size:10px;"><i class="fas fa-clock" style="color:white;margin-right:0.7%;font-size:10px;"></i><span th:text="${feedback.getCreatedAt()}" style="margin-left:3%;"></span></p>
+            <p class="card-text" style="color:white;font-size:10px;"><i class="fas fa-clock" style="color:white;margin-right:0.7%;font-size:10px;"></i><span  th:text="${feedback.getCreatedAt()}" style="margin-left:3%; font-family: 'Roboto', sans-serif;"></span></p>
             <br>
             <form class="d-flex">
                 <a href="#" class="btn btn-outline-warning" style="font-family: 'Roboto', sans-serif;margin-right:0.5%;font-size:12px;" > <i class="fas fa-eye" style="font-size:12px;"> </i> Find User</a>
