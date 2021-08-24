@@ -444,9 +444,9 @@ font-family: 'Roboto', sans-serif;
 <body>
 <div th:replace="header :: header">...</div>
 <br>
-<h1 style="font-family: 'Roboto', sans-serif; text-align:center;font-weight:bolder "><i class="fas fa-users"></i> Meet Our Team</h1>
+<h1 style="font-family: 'Roboto', sans-serif; text-align:center;font-weight:bolder; margin-top: 3%; "><i class="fas fa-users"></i> Meet Our Team</h1>
 <br>
-<div class="container" style="font-family: 'Roboto', sans-serif;text-align: center;">
+<div class="container" style="font-family: 'Roboto', sans-serif;text-align: center; margin-top: 4%;">
     <div class="row">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="our-team">
@@ -522,7 +522,7 @@ font-family: 'Roboto', sans-serif;
 
 
 <br>
-<form method="post" action="/aboutus"  class=" p-3 rounded" style="max-width: 350px; margin: 0 auto; background-color: #343a40;">
+<form method="post" action="/aboutus"  class=" p-3 rounded" style="max-width: 350px; margin: 0 auto; background-color: #343a40; margin-top: 7%;">
     <div class="mb-3">
     <label for="email" class="form-label"><i style="font-size:20px;color:#F5D300" class="fas fa-envelope"><span style="font-family: 'Roboto', sans-serif;">  Email</span></i></label>
     <input name="email" class="form-control" id="email" type="text" placeholder="your email">
@@ -553,7 +553,7 @@ font-family: 'Roboto', sans-serif;
             <p class="card-text" style="color:white;font-size:10px;"><i class="fas fa-clock" style="color:white;margin-right:0.7%;font-size:10px;"></i><span  th:text="${feedback.getCreatedAt()}" style="margin-left:3%; font-family: 'Roboto', sans-serif;"></span></p>
             <br>
             <form class="d-flex">
-                <a href="#" class="btn btn-outline-warning" style="font-family: 'Roboto', sans-serif;margin-right:0.5%;font-size:12px;" > <i class="fas fa-eye" style="font-size:12px;"> </i> Find User</a>
+                <a th:href="'/aboutus/'+${feedback.username}"  class="btn btn-outline-warning" style="font-family: 'Roboto', sans-serif;margin-right:0.5%;font-size:12px;" > <i class="fas fa-eye" style="font-size:12px;"> </i>Profile</a>
             </form>
         </div>
     </div>
