@@ -134,6 +134,7 @@ a:hover {
   border-radius: 100px 10px 100px 100px;
   transition: all 1s ease-out;
   background: rgb(33, 37, 41);
+  padding: 8px;
 }
 
 .infocardContainer div {
@@ -512,6 +513,38 @@ transition:0.3s;
 	}
 
 }
+.container .h-100{
+margin-left:20%
+}
+#updateButton{
+background-color: #343a40;
+border: solid;
+border: solid 1px #343a40;
+color: #f5d300;
+border-radius: 10px;
+}
+#updateButton:hover{
+background-color: #f8cc1d;
+border: solid;
+border: solid 1px #343a40;
+color: #212529;
+border: solid 1px #f8cc1d;
+border-radius: 10px;
+transition:0.3s
+}
+
+.new:hover{
+background-color:#F5D300 !important;
+border-radius: 5px !important;
+-webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+  color:#343a40 !important;
+}
+.new{
+color:#F5D300 !important;
+border-bottom: solid 1px #ffffff36 !important;
+width: 170px;
+}
     </style>
 </head>
 <body>
@@ -525,7 +558,7 @@ transition:0.3s;
         <div >
             <div style="margin-left:13%;margin-top:3%">
                 <img class="card-img-top" th:src="${me.img}" style="border-radius: 50%;width:290px;height:290px;border-style: solid;
-  border-width: 5px;border-color: white;" alt="Card image cap">
+  border-width: 5px;border-color: white;" alt="Card image cap" onerror="this.src='https://www.w3schools.com/howto/img_avatar.png'">
                 <div class="card-body" >
                     <h2  class="card-title" style="margin-left:10%;" ><i class="fas fa-user-tie" style="font-weight: 900;"><span class="font" style="font-family: 'Roboto', sans-serif; margin-left:10px;font-weight: 900;" th:text="${me.username}"></span></i></h2>
                 </div>
@@ -611,13 +644,13 @@ transition:0.3s;
                         <img th:src="${event.img}"></img>
                     </div>
                     <div class="textbois">
-                        <h3 th:text="${event.name}"></h3>
+                        <h3><span th:text="${event.name}"></span></h3>
                         <h5 th:text="${event.date}"></h5>
                         <p th:text="${event.description}"></p>
-                        <p> max number of participant<span th:text="${event.maxParticipant}"></span></p>
+                        <p> Max Number Of Participants  <span th:text="${event.maxParticipant}"></span></p>
                         <div class="hotlinks">
                             <form action="#" th:action="'/deleteevent/'+ ${event.id}" method="post" >
-                                   <button type="submit" style="color:black;">delete event</button>
+                                   <button type="submit" style="color:black;">Delete event</button>
                             </form>
                         </div>
                     </div>
@@ -667,9 +700,9 @@ transition:0.3s;
 <!--    <button id="updateButton">add new event</button>-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:#F5D300" >
         <div class="modal-dialog" role="document" style="">
-            <div class="modal-content" style="border-width: 0.7px;border-color: #F5D300;background-color:black;">
+            <div class="modal-content" style="border-width: 0.7px;border-color: #F5D300;background-color:#343a40;">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" style="color:#F5D300" >Event Form</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

@@ -1,40 +1,554 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/regular.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="https://www.primefaces.org/primeng-6-0-0-beta-1-released-primeicons/" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="https://www.flaticon.com/premium-icon/icons/svg/2702/2702154.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <style>
+.navbar-light .navbar-nav .nav-link { color:#F5D300;  font-size:18px; padding-left:12.5px;padding-right:12.5px}
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {color:#F5D300}
+.navbar-light .navbar-brand { color:#F5D300}
+.navbar-light .navbar-nav .nav-link:hover{
+background-color:#F5D300;
+border-radius: 5px;
+-webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+}
+.navbar-brand{
+width:80px;
+margin-left:10px
+}
+
+
+
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #343a40;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:#f5d300;;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+
+
+
+    @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+	box-sizing: border-box;
+}
+
+
+
+h3 {
+	margin: 10px 0;
+}
+
+h6 {
+	margin: 5px 0;
+	text-transform: uppercase;
+}
+
+p {
+	font-size: 14px;
+	line-height: 21px;
+}
+
+.card-container {
+	background-color: #343A40;
+	border-radius: 5px;
+	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+	color: #B3B8CD;
+	padding-top: 30px;
+	position: relative;
+	width: 350px;
+	max-width: 100%;
+	text-align: center;
+}
+
+.card-container .pro {
+	color: #231E39;
+	background-color: #FEBB0B;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px 7px;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card-container .round {
+width: 200px;
+height: 200px;
+border: 1px solid #F5D300;
+	border-radius: 50%;
+	padding: 7px;
+}
+
+button.primary {
+	background-color: #F5D300;
+border: 1px solid #F5D300;
+	border-radius: 3px;
+	color: #231E39;
+	font-family: Montserrat, sans-serif;
+	font-weight: 500;
+	padding: 10px 25px;
+}
+
+button.primary.ghost {
+	background-color: transparent;
+	color: #F5D300;
+}
+
+.skills {
+	background-color: #343a40;
+	text-align: left;
+	padding: 15px;
+	margin-top: 30px;
+	border-top: 1px yellow solid;
+}
+
+.skills ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.skills ul li {
+	border: 1px solid #2D2747;
+	border-radius: 2px;
+	display: inline-block;
+	font-size: 12px;
+	margin: 0 7px 7px 0;
+	padding: 7px;
+}
+
+.users-cards{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.h-100{
+margin-top: 3%;
+}
+
+body{
+background:whitesmoke;
+}
+
+</style>
+    <style>   @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  font-family: Open Sans;
+}
+
+/* footer{
+	margin-top: 500px;
+} */
+section {
+  width: 100%;
+  display: inline-block;
+  background: #333;
+  /* height: 50vh; */
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed{
+	background-color:rgb(51, 56, 59);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:#F5D300;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:white;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-company-name{
+	color:  white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #F5D300;
+	color: black;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+.footer-distributed .footer-center i:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
+}
+.footer-distributed .footer-icons a:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-center p a{
+	color:  white;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:#ffffff;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #F5D300;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:#F5D300;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: black;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}
+.new:hover{
+background-color:#F5D300 !important;
+border-radius: 5px !important;
+-webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+  color:#343a40 !important;
+}
+.new{
+color:#F5D300 !important;
+border-bottom: solid 1px #ffffff36 !important;
+width: 170px;
+}
+</style>
+    <style>
+    .card-img-top{
+    display: grid;
+width: 255px;
+border-radius: 50%;
+height: 255px;
+border: solid 5px white;
+}
+    .card-body{
+    flex: 1 1 auto;
+padding: 1rem 1rem;
+display: grid;
+grid-template-rows: 1fr auto; color:white;
+    }
+    .card{
+   width: 40rem;
+display: grid;
+grid-template-columns: 280px 1fr;
+height: 250px;
+border-radius: 145px 50px 50px 140px;
+border: solid 1px white;
+background-color: #343a40;
+margin-top: 3%;
+
+    }
+</style>
 </head>
 <body>
-<div class="followingEvents" th:each="user: ${following}">
-    <div th:each="event : ${user.myEvents}">
-        <p >following <span th:text="${event.name}"></span></p>
-
-
-        <form method="POST" action="#" th:action="'/addoffer/'+ ${event.id}" th:if="${!me.attendedTo.contains(event)}">
-            <div th:each="eventNeed: ${event.eventNeeds}">
-                <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
-                <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">
+<div th:replace="header :: header">...</div>
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <form method="post"  action="/searchuser">
+            <div class="searchbar">
+                <input class="search_input" type="text" name="search" placeholder="Search...">
+                <a href="#" class="search_icon"> <i class="fas fa-search" style="color: #febb0b;"></i></a>
             </div>
-            <input type="submit" value="attend" th:if="${event.maxParticipant!=0}">
         </form>
-
-
-        <form method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
-            <input type="submit" value="Un Attend" th:if="${event.maxParticipant!=0}" >
-        </form>
-
-
-        <form method="post" action="#" th:action="'/closed/'+${event.id}" th:if="${event.maxParticipant==0}">
-                        <label th:text="closed"></label>
-        </form>
-
-
-        <form method="get" action="#" th:action="'/event/' + ${event.id}">
-            <button type="submit">Show Details</button>
-        </form>
-
     </div>
 </div>
+
+
+
+<div class="events-card" style="display: grid;
+grid-template-columns: 1fr 1fr;
+justify-items: center;
+margin-top:5%">
+<div class="myevents" >
+    <h2 style="color:black; text-align: center;padding-bottom:5%"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;">  My Events</span></i></h2>
+
+    <div class="scroll">
+<div th:each="user: ${following}" class="followingenvents">
+    <div  th:each="event : ${user.myEvents}" class="sameevent">
+        <div class="card" >
+            <div>
+                <img class="card-img-top"
+                     th:src="${event.img}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <div>
+                    <h4 class="card-title"><i class="fas fa-calendar"></i><span th:text="'  '+${event.name}"></span></h4>
+                    <p class="card-title"><i class="far fa-calendar-alt"></i><span th:text="'  '+${event.date}" ></span></p>
+                    <p  class="card-title"><i class="fas fa-male"></i><span th:text="'  '+${event.maxParticipant}"></span></p>
+                    <p  class="card-title"><i class="fas fa-map-marker-alt"></i><span th:text="'  '+${event.address}"></span></p>
+                </div>
+                <div class="bottons" style="display: grid;
+                    grid-template-columns: 110px 1fr;">
+                    <div>
+                    <form method="POST" action="#" th:action="'/addoffer/'+ ${event.id}" th:if="${!me.attendedTo.contains(event)}">
+                        <div class="checkbox" th:each="eventNeed: ${event.eventNeeds}">
+                            <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
+                            <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">
+                        </div>
+                        <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Attend" th:if="${event.maxParticipant!=0}">
+                    </form>
+
+                    <form method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
+                        <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Un Attend" th:if="${event.maxParticipant!=0}" >
+                    </form>
+                    <form method="post" action="#" th:action="'/closed/'+${event.id}" th:if="${event.maxParticipant==0}">
+                        <label th:text="closed"></label>
+                    </form>
+                    </div>
+
+                    <div style="
+                     margin-top: 13%;">
+                    <form method="get" action="#" th:action="'/event/' + ${event.id}">
+                        <button class="btn btn-outline-warning" type="submit">Show Details</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+    <div class="attend-events">
+        <h2 style="color:black; text-align: center;"> <i class="far fa-calendar-alt"><span style="font-family: 'Roboto', sans-serif; font-weight: bolder;">  Attended Events</span> </i></h2>
+
+    </div>
+
+</div>
+
+
+
+
+
+
 
 <div class="ALL EVENTS" th:each="user: ${users}">
     <div th:each="event : ${user.myEvents}">
@@ -60,8 +574,8 @@
             <button type="submit">Show Details</button>
         </form>    </div>
 </div>
+<br>
 
-
-
+<div th:replace="footer2 :: footer2">...</div>
 </body>
 </html>
