@@ -41,33 +41,8 @@
 
 <body>
 
-<!--<form method="post" action="#" th:action="@{/signup}" class="login-form" th:object="${user}">-->
-<!--  <fieldset>-->
-<!--    <legend>sign up</legend>-->
-<!--    <label for="username">User Name</label>-->
-<!--    <input id="username" name="username" type="text" field="*{username}">-->
-
-<!--    <label for="password">Password</label>-->
-<!--    <input id="password" name="password" type="password" field="*{password}">-->
-
-<!--    <label for="firstName">first name</label>-->
-<!--    <input id="firstName" name="firstName" type="text" field="*{firstName}">-->
-
-<!--    <label for="lastName">last name</label>-->
-<!--    <input id="lastName" name="lastName" type="text" field="*{lastName}">-->
-
-<!--    <label for="dateOfBirth">date of birth</label>-->
-<!--    <input id="dateOfBirth" name="dateOfBirth" type="date" field="*{dateOfBirth}">-->
-
-<!--    <label for="bio">bio</label>-->
-<!--    <input id="bio" name="bio" type="text" field="*{bio}">-->
-
-<!--    <label for="img">img Url</label>-->
-<!--    <input id="img" name="img" type="String" field="*{img}">-->
-<!--    <input type="submit" value="signup">-->
-
-<!--  </fieldset>-->
-<!--</form>-->
+<div class="alert alert-danger" role="alert" th:text="${msg}" th:if="${status}">
+</div>
 
 <div class="container-fluid text-center">
   <br>

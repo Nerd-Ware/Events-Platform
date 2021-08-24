@@ -33,8 +33,14 @@ public class UserController {
     }
 
 
+    String signUperrorMsg = null;
     @GetMapping("/signup")
-    public String signuppage(){
+    public String signuppage(Model model){
+        if (signUperrorMsg != null){
+            model.addAttribute("msg",signUperrorMsg);
+            model.addAttribute("status",true);
+            signUperrorMsg=null;
+        }
 
         return "signup.html";
     }
@@ -42,10 +48,15 @@ public class UserController {
 
     @PostMapping("/signup")
     public RedirectView signup(@ModelAttribute DbUser user){
-        DbUser newUser = new DbUser(user.getUsername(),bCryptPasswordEncoder.encode(user.getPassword()) , user.getFirstName(), user.getLastName(), user.getDateOfBirth(), user.getBio(),user.getImg());
-
-        dbUserRepository.save(newUser);
-        return new RedirectView("/login");
+        try {
+            DbUser newUser = new DbUser(user.getUsername(),bCryptPasswordEncoder.encode(user.getPassword()) , user.getFirstName(), user.getLastName(), user.getDateOfBirth(), user.getBio(),user.getImg());
+            dbUserRepository.save(newUser);
+            return new RedirectView("/login");
+        }catch (Exception e){
+            e.printStackTrace();
+            signUperrorMsg="sorry this username is already taken";
+            return new RedirectView("/signup");
+        }
     }
 
     @GetMapping("/profile")
