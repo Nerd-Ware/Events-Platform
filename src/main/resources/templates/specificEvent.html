@@ -3,29 +3,699 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/regular.min.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="https://www.primefaces.org/primeng-6-0-0-beta-1-released-primeicons/" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="https://www.flaticon.com/premium-icon/icons/svg/2702/2702154.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Raleway:wght@500&display=swap" rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap');
+.cardInfo{
+line-height:0;
+}
+h6{
+font-size:12px;
+}
+.eventInfo{
+font-weight:700;
+}
+.smallCard{
+    position: relative;
+        bottom: 200px;
+}
+.mainDiv{
+background-color:#4d4d4de6;
+}
+.buttons{
+          position: relative;
+    bottom: 272px;
+    left: 90px;
+}
+.descInfo{
+margin-top: 5%;
+    width: 50%;
+        position: relative;
+    left: 40%;
+}
+.bigDiv{
+    border: 1px #e8e8e8 solid;
+    border-radius: 30px;
+    width: 80%;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: whitesmoke;
+        }
+         .closeDiv{
+         height: 30px;
+    width: 75px;
+    background-color: #fd3232;
+    border-radius: 5px;
+    position: relative;
+    bottom: 740px;
+    left: 1100px;
+    color: white;
+    font-weight: 600;
+    }
+    .welcomep{
+        color: white;
+    position: relative;
+    right: 30%;
+    top: 50px;
+    }
+   .welcomeName{
+   color:#F5D300;
+   font-weight:700;
+   font-family: 'Raleway', sans-serif;
+    }
+ .goBack{
+     position: relative;
+    bottom: 311px;
+    left: 250px;
+ }
+ .checkbox{
+    position: relative;
+    bottom: 350px;
+    display: inline-block;
+    padding: 10px;
+    left: 18%;
+ }
+ .chakeHand{
+    position: absolute;
+    bottom: 300px;
+    left: 770px;
+    font-weight: 600;
+ }
+ .unAttendButton{
+ position: relative;
+    bottom: 273px;
+    left: 140px;
+ }
+
+
+</style>
+    <style>
+
+    main{
+    display: grid;
+    grid-template-columns: 400px auto;
+}
+
+.search-addEvent{
+display: grid;
+grid-template-columns: 3fr 1fr;
+margin: 8% 0px;
+}
+
+h4{
+    font-size: 1.2rem;
+}
+
+
+
+
+        h2,h3,h5{
+        color:#212529;
+        }
+        p{
+        color:#212529;
+        }
+
+        #input0 ,
+         #input1 ,
+         #input2 ,
+         #input3 ,
+         #input4{
+         display: grid;
+         }
+
+         .navbar-light .navbar-nav .nav-link { color:#F5D300;  font-size:18px; padding-left:12.5px;padding-right:12.5px}
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {color:#F5D300}
+.navbar-light .navbar-brand { color:#F5D300}
+.navbar-light .navbar-nav .nav-link:hover{
+background-color:#F5D300;
+border-radius: 5px;
+-webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+}
+.navbar-brand{
+width:80px;
+margin-left:10px
+}
+
+#updateButton{
+margin-top:3%;
+}
+
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+
+
+/*TODO: clean it all up, finish flex, add aesthetics, icons, redefine to be relative to vh-vw, maybe rework v2 variant using scss and frames and real transitions? */
+html body {
+background: whitesmoke;
+  margin: 0 0 0 0;
+}
+.infocardContainer * {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 300;
+
+}
+h2 {
+  font-weight: 600; font-style: italic; font-family: "Fira Sans Condensed", sans-serif;
+}
+header {
+  height: 2em;
+  background-color: #111122;
+  margin: 0 0 0 0;
+  padding: auto;
+  font-size: 2em;
+  text-align: center;
+  line-height: 2em;
+  color: white;
+}
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: #555566;
+}
+a:hover {
+  text-decoration: underline;
+}
+.infocardContainer {
+  display: flex;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  background: rgb(33, 37, 41);
+  transition: all 500ms ease-in;
+  transition-delay: 1s;
+  margin: auto;
+  margin-top: 100px;
+  --margin-top: 100px;
+}
+.infocardContainer {
+  width: 500px;
+  border-radius: 100px 10px 100px 100px;
+  transition: all 1s ease-out;
+  background: rgb(33, 37, 41);
+  padding: 8px;
+}
+
+.infocardContainer div {
+  text-color: white;
+  flex-shrink: 1;
+  width: 100%;
+  --background-color: green;
+}
+.infocardContainer div * {
+  display: flex;
+  --flex: inherit;
+  overflow: hidden;
+  text-overflow: hidden;
+  --background-color: yellow;
+  color: white;
+  white-space: nowrap;
+  width: 0;
+  height: auto;
+  transition: all 450ms ease-in;
+  transition-delay: 1s;
+}
+.infocardContainer div *{
+  --background-color: purple;
+  display: flex;
+  visibility: visible;
+  transition: all 1s ease-out;
+  transition-delay: 500ms;
+  width: 100%;
+  height: auto;
+}
+
+.infocardContainer .main, .infocardContainer .main img{
+  --background-color: red;
+  height: 200px;
+  width: 200px;
+  padding-right: 10px;
+  border-radius: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.infocardContainer .main img{
+  height: 180px;
+  width: 180px;
+  transition: none;
+  display: float;
+  position: relative;
+  border: 3px solid white;
+  margin: 0 0 0 0; padding: 0 0 0 0;
+}
+.infocardContainer .textbois {
+  position: relative;
+}
+.infocardContainer .textbois .hotlinks {
+  max-width: 60%;
+  max-height: 30px;
+
+  --background-color: white;
+  position:absolute;
+  bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 13px;
+}
+.infocardContainer .textbois .hotlinks * {
+  background-color: white;
+ max-width: 105px;
+  --margin: 0 1px 0 1px;
+  border-radius: 25px;
+}
+/*TODO: animate copy main transition style for info*/
+/* .infocardContainer #textbois #hotlinks *:hover {
+
+
+} */
+
+.events-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top
+}
+
+
+.scroll{
+overflow-y: scroll;
+height: 83vh;
+border-right: 1px solid #3c3c3c17;
+scrollbar-width: none;
+}
+
+
+
+
+
+
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #343a40;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:#f5d300;;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+
+
+
+    .following-followers{
+    display: flex;
+    justify-content: center;
+    margin-left: 7%;
+    width: 340px;
+}
+
+h5{
+font-size:1.1rem;
+}
+
+    </style>
+    <style>
+
+
+
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  font-family: Open Sans;
+}
+
+/* footer{
+	margin-top: 500px;
+} */
+section {
+  width: 100%;
+  display: inline-block;
+  background: #333;
+  /* height: 50vh; */
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed{
+	background-color:rgb(51, 56, 59);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:#F5D300;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:white;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-company-name{
+	color:  white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #F5D300;
+	color: black;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+.footer-distributed .footer-center i:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
+}
+.footer-distributed .footer-icons a:hover{
+background-color:rgb(51, 56, 59);
+color:white;
+transition:0.3s;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-center p a{
+	color:  white;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:#ffffff;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #F5D300;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:#F5D300;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: black;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}
+.container .h-100{
+margin-left:20%
+}
+#updateButton{
+background-color: #343a40;
+border: solid;
+border: solid 1px #343a40;
+color: #f5d300;
+border-radius: 10px;
+}
+#updateButton:hover{
+background-color: #f8cc1d;
+border: solid;
+border: solid 1px #343a40;
+color: #212529;
+border: solid 1px #f8cc1d;
+border-radius: 10px;
+transition:0.3s
+}
+
+.new:hover{
+background-color:#F5D300 !important;
+border-radius: 5px !important;
+-webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+  color:#343a40 !important;
+}
+.new{
+color:#F5D300 !important;
+border-bottom: solid 1px #ffffff36 !important;
+width: 170px;
+}
+    </style>
 </head>
 <body>
-<h2 th:text="${specificEvent.name}"></h2>
-<h2 th:text="${specificEvent.description}"></h2>
-<h2 th:text="${specificEvent.date}"></h2>
+<div th:replace="header :: header">...</div>
 
-    <form method="POST" action="#" th:action="'/attendFromSpecificPage/'+ ${specificEvent.id}" th:if="${!me.attendedTo.contains(specificEvent)}">
-    <div th:each="eventNeed: ${specificEvent.eventNeeds}">
-        <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
-        <input type="checkbox" th:name="${specificEvent.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">
+<div class="card text-center mainDiv">
+
+        <h5 class="card-title welcomep">Welcome <span th:text="${me.username}" class="welcomeName"></span> to our event  <i class="fas fa-hand-paper" style="color:#F5D300"></i></h5>
+
+    <div class="card-body bigDiv">
+        <div class="descInfo">
+        <h6>Event name</h6>
+        <p class="card-title eventInfo"><span th:text="${specificEvent.name}"></span></p>
+        <br>
+        <br>
+        <h6>Event description</h6>
+        <p class="card-title eventInfo"><span th:text="${specificEvent.description}"></span></p>
+        <p class="card-text eventInfo" ><span th:text="${specificEvent.name}+' event has ' + ${specificEvent.attendance.size()} + ' participant\s and we still have '+ ${specificEvent.maxParticipant} + ' seat\s to close. '  "></span></p>
+        </div>
+        <div class="smallCard" style="width: 18rem;">
+            <img  th:src="${specificEvent.img}" style="border-radius: 50%;width:290px;height:290px;border-style:1 solid;
+  border-width: 5px;border-color: white;" alt="Card image cap" class="card-img-top">
+            <div class="card-body cardInfo">
+                <h6>Created By</h6>
+                <p class="eventInfo"> <i class="fas fa-user-alt"></i><span th:text="${specificEvent.user.username}"></span></p>
+                <br>
+                <h6>Date</h6>
+                <p class="eventInfo"> <i class="far fa-calendar"></i><span th:text="${specificEvent.date}"></span></p>
+                <br>
+                <h6>Created at</h6>
+                <p class="eventInfo"> <i class="fas fa-calendar"></i><span th:text="${specificEvent.createdAt}"></span></p>
+
+            </div>
+        </div>
+
+        <h5 class="chakeHand"> <span class="welcomeName"><i class="fas fa-hands-helping "></i> </span>Check what you can offer for us </h5>
+        <form method="POST" action="#" th:action="'/attendFromSpecificPage/'+ ${specificEvent.id}" th:if="${!me.attendedTo.contains(specificEvent)}" >
+            <div th:each="eventNeed: ${specificEvent.eventNeeds}" class="checkbox">
+                <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
+                <input type="checkbox" th:name="${specificEvent.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}" >
+            </div>
+            <input type="submit" value="Attend" th:if="${specificEvent.maxParticipant!=0}" class="btn btn-warning buttons">
+        </form>
+
+        <form method="post" action="#" th:action="'/unAttendFromSpecificPage/'+${specificEvent.id}" th:if="${me.attendedTo.contains(specificEvent)}" >
+            <input type="submit" value="Un Attend" class="btn btn-warning unAttendButton" >
+        </form>
+
+
+
+        <div class="closeDiv" th:if="${specificEvent.maxParticipant==0}">
+        <form method="post" action="#" th:action="'/closedFromSpecificEvent/'+${specificEvent.id}" th:if="${specificEvent.maxParticipant==0}">
+            <label th:text="Closed" ></label>
+        </form>
+        </div>
+        <a href="/upcommingevents" class="btn btn-outline-warning goBack">Go Back</a>
     </div>
-    <input type="submit" value="attend" th:if="${specificEvent.maxParticipant!=0}">
-</form>
-
-<form method="post" action="#" th:action="'/unAttendFromSpecificPage/'+${specificEvent.id}" th:if="${me.attendedTo.contains(specificEvent)}" >
-    <input type="submit" value="Un Attend"  >
-</form>
 
 
-<form method="post" action="#" th:action="'/closedFromSpecificEvent/'+${specificEvent.id}" th:if="${specificEvent.maxParticipant==0}">
-    <label th:text="closed"></label>
-</form>
+</div>
 
 
+<div th:replace="footer2 :: footer2">...</div>
 </body>
 </html>
