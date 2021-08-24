@@ -122,7 +122,7 @@ a:hover {
   height: 200px;
   width: 200px;
   border-radius: 100px;
-  background: rgb(33, 37, 41);
+  background: rgb(51, 56, 59);;
   transition: all 500ms ease-in;
   transition-delay: 1s;
   margin: auto;
@@ -199,9 +199,7 @@ a:hover {
   border-radius: 13px;
 }
 .infocardContainer .textbois .hotlinks * {
-  background-color: white;
- max-width: 105px;
-  --margin: 0 1px 0 1px;
+
   border-radius: 25px;
 }
 /*TODO: animate copy main transition style for info*/
@@ -220,7 +218,7 @@ a:hover {
 .scroll{
 overflow-y: scroll;
 height: 83vh;
-border-right: 1px solid #3c3c3c17;
+border-right: 1px solid #3c3c3c57;
 scrollbar-width: none;
 }
 
@@ -284,7 +282,7 @@ scrollbar-width: none;
 }
 
 h5{
-font-size:1.1rem;
+font-size:1rem;
 }
 
     </style>
@@ -554,7 +552,7 @@ width: 170px;
 <main>
 
 
-    <div class="user-info" style="border-right: solid 1px #3232321a;">
+    <div class="user-info" style="border-right: solid 1px #3232321a;; background: #0000000f">
         <div >
             <div style="margin-left:13%;margin-top:3%">
                 <img class="card-img-top" th:src="${me.img}" style="border-radius: 50%;width:290px;height:290px;border-style: solid;
@@ -572,11 +570,11 @@ width: 170px;
 
             <div class="following-followers">
             <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-user-friends"> <span style="font-family: 'Roboto', sans-serif" th:text="' '+${me.followers.size()}+' Followers'"></span></i></h5>
+                <h4 class="card-title"><i class="fas fa-user-friends"> <span style="font-family: 'Roboto', sans-serif" th:text="' '+${me.followers.size()}+' Followers'"></span></i></h4>
 
             </div>
             <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-user-friends"> <span style="font-family: 'Roboto', sans-serif" th:text="' '+${me.following.size()}+' Following'"></span></i></h5>
+                <h4 class="card-title"><i class="fas fa-user-friends"> <span style="font-family: 'Roboto', sans-serif" th:text="' '+${me.following.size()}+' Following'"></span></i></h4>
             </div>
         </div>
 
@@ -584,18 +582,18 @@ width: 170px;
             <div>
                 <div class="fullNmae" style="display: flex; justify-content: center; margin-left: 7%; width: 340px;">
                     <div class="card-body" >
-                        <h4 class="card-title"><i class="fas fa-id-card-alt"><span style="font-family: 'Roboto', sans-serif">  First Name</span></i></h4>
+                        <h5 class="card-title"><i class="fas fa-id-card-alt"><span style="font-family: 'Roboto', sans-serif">  First Name</span></i></h5>
                         <p class="card-text" th:text="${me.firstName}"></p>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title"> <i class="far fa-address-card"><span style="font-family: 'Roboto', sans-serif">  Last Name</span></i></h4>
+                        <h5 class="card-title"> <i class="fas fa-address-card"><span style="font-family: 'Roboto', sans-serif">  Last Name</span></i></h5>
                         <p class="card-text" th:text="${me.lastName}"></p>
                     </div>
                 </div>
 
 
                 <div class="card-body"   style="margin-left: 30%;">
-                    <h4 class="card-title" style="margin-left: -8%;"><i class="fas fa-calendar-day"><span style="font-family: 'Roboto', sans-serif">  Date Of Birth</span></i></h4>
+                    <h5 class="card-title" style="margin-left: -8%;"><i class="fas fa-calendar-day"><span style="font-family: 'Roboto', sans-serif">  Date Of Birth</span></i></h5>
                     <p class="card-text" th:text="${me.dateOfBirth}"></p>
                 </div>
             </div>
@@ -650,7 +648,7 @@ width: 170px;
                         <p> Max Number Of Participants  <span th:text="${event.maxParticipant}"></span></p>
                         <div class="hotlinks">
                             <form action="#" th:action="'/deleteevent/'+ ${event.id}" method="post" >
-                                   <button type="submit" style="color:black;">Delete event</button>
+                                   <button type="submit" style="color:black; width: 110px;">Delete event</button>
                             </form>
                         </div>
                     </div>
@@ -659,24 +657,39 @@ width: 170px;
         </div>
 
 
-        <div class="attend-events">
-            <h2 style="color:black; text-align: center;"> <i class="far fa-calendar-alt"><span style="font-family: 'Roboto', sans-serif; font-weight: bolder;">  Attended Events</span> </i></h2>
-            <div class="infocardContainer">
-                <div class="main">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Dog_coat_variation.png"></img>
-                </div>
-                <div class="textbois">
-                    <h2>Emil Alicic</h2>
-                    <h4>Professional Memeologist</h4>
-                    <a href="mailto:limecicila@gmail.com">limecicila@gmail.com</a>
-                    <div class="hotlinks">
 
+        <div class="attended-to">
+            <h2 style="color:black; text-align: center;"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;">  Attended Events</span></i></h2>
+
+            <div class="scroll">
+                <div class="infocardContainer" th:each="event : ${me.attendedTo}">
+                    <div class="main">
+                        <img th:src="${event.img}"></img>
+                    </div>
+                    <div class="textbois">
+                        <h3><span th:text="${event.name}"></span></h3>
+                        <h5 th:text="${event.date}"></h5>
+                        <p th:text="${event.description}"></p>
+                        <p> Max Number Of Participants  <span th:text="${event.maxParticipant}"></span></p>
+                        <div class="hotlinks">
+                            <a th:href="'/event/' + ${event.id}"> <button type="submit" style="color:black;width: 65px;">Details </button></a>
+
+                            <form method="post" action="#" th:action="'/unattendfromprofile/'+${event.id}">
+                                <button type="submit" style="color:black;width: 100px;">UnAttend </button>
+                            </form>
+                        </div>
 
                     </div>
                 </div>
             </div>
-
         </div>
+
+
+
+
+
+
+
     </div>
 </div>
 
@@ -737,7 +750,8 @@ width: 170px;
                         <div class="form-group">
                             <label for="number_links">select the number of needs</label>
                             <select name="number_links" id="number_links">
-                                                <option value="1">1</option>
+                                               <option value="0">0</option>
+                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
