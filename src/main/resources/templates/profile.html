@@ -613,7 +613,7 @@ width: 170px;
     <div class="search-addEvent">
         <div class="container h-100">
             <div class="d-flex justify-content-center h-100">
-                <form method="post"  action="/searchfriend">
+                <form method="post"  action="/searcheventfromprofile">
                     <div class="searchbar">
                         <input class="search_input" type="text" name="search" placeholder="Search...">
                         <a href="#" class="search_icon"> <i class="fas fa-search" style="color: #febb0b;"></i></a>
@@ -684,29 +684,9 @@ width: 170px;
             </div>
         </div>
 
-
-
-
-
-
-
     </div>
 </div>
 
-
-
-<!--    <div th:each="event : ${me.myEvents}" style="border: solid 2px black">-->
-<!--    <p th:text="${event.name}"></p>-->
-<!--        <p th:text="${event.description}"></p>-->
-<!--        <p th:text="${event.date}"></p>-->
-<!--        <p th:text="${event.maxParticipant}"></p>-->
-
-<!--        <div th:each="eventNeed: ${event.eventNeeds}">-->
-<!--            <P th:text="${eventNeed.name}"></P>-->
-<!--            <P th:text="${eventNeed.count}"></P>-->
-<!--        </div>-->
-
-<!--    </div>-->
 
 
 
@@ -724,28 +704,28 @@ width: 170px;
                     <form method="post" action="/addevent"  id="updatedForm">
                             <div class="form-group">
                                 <label for="name">Event Name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Event Name">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Event Name" required>
                             </div>
                             <div class="form-group">
                                 <label for="description">Event Description</label>
-                                <input type="text" class="form-control" id="description" name="description" placeholder="Event Description">
+                                <input type="text" class="form-control" id="description" name="description" placeholder="Event Description" required>
                             </div>
 
                         <div class="form-group">
                             <label for="inputAddress">Event Place</label>
-                            <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="Event Address">
+                            <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="Event Address" required>
                         </div>
                         <div class="form-group">
                             <label for="date">Event Date</label>
-                            <input type="date" class="form-control" id="date" name="date" placeholder="Event Date">
+                            <input type="date" class="form-control" id="date" name="date" placeholder="Event Date" required>
                         </div>
                         <div class="form-group">
                             <label for="maxParticipant">event max Participant number</label>
-                            <input type="number" class="form-control" id="maxParticipant" name="maxParticipant" placeholder="event max Participant number">
+                            <input type="number" class="form-control" id="maxParticipant" name="maxParticipant" placeholder="event max Participant number" required>
                         </div>
                         <div class="form-group">
                             <label for="img">Event Img Url</label>
-                            <input type="text" class="form-control" id="img" name="img" placeholder="Event Img Url">
+                            <input type="text" class="form-control" id="img" name="img" placeholder="Event Img Url" required>
                         </div>
                         <div class="form-group">
                             <label for="number_links">select the number of needs</label>
