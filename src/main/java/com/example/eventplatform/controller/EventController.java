@@ -85,7 +85,7 @@ public class EventController {
     @PostMapping("/addoffer/{id}")
     public RedirectView attendEvent(@RequestParam(value="0", required = false) boolean need1,@RequestParam(value="1", required = false) boolean need2,@RequestParam(value="2", required = false) boolean need3,@RequestParam(value="3", required = false) boolean need4,@RequestParam(value="4", required = false) boolean need5,Principal p,@PathVariable("id") int id){
         Event event=eventRepository.findById(id).get();
-        System.out.println(event.getEventNeeds().get(0).getCount());
+//        System.out.println(event.getEventNeeds().get(0).getCount());
        if(need1){
            event.getEventNeeds().get(0).setCount(event.getEventNeeds().get(0).getCount()-1);
            eventNeedsRepository.save(event.getEventNeeds().get(0));
@@ -155,7 +155,7 @@ public class EventController {
     @PostMapping("/attendFromSpecificPage/{id}")
     public RedirectView attendFromSpecificPAge(@RequestParam(value="0", required = false) boolean need1,@RequestParam(value="1", required = false) boolean need2,@RequestParam(value="2", required = false) boolean need3,@RequestParam(value="3", required = false) boolean need4,@RequestParam(value="4", required = false) boolean need5,Principal p,@PathVariable("id") int id){
         Event event=eventRepository.findById(id).get();
-        System.out.println(event.getEventNeeds().get(0).getCount());
+//        System.out.println(event.getEventNeeds().get(0).getCount());
         if(need1){
             event.getEventNeeds().get(0).setCount(event.getEventNeeds().get(0).getCount()-1);
             eventNeedsRepository.save(event.getEventNeeds().get(0));
@@ -207,4 +207,19 @@ public class EventController {
 
         return new RedirectView("/event/{id}");
     }
+
+
+
+    @PostMapping("/unattendfromprofile/{id}")
+    public RedirectView unattendFromProfile(Principal p,@PathVariable("id") int id){
+        DbUser me=dbUserRepository.findByUsername(p.getName());
+        Event event=eventRepository.findById(id).get();
+        me.getAttendedTo().remove(event);
+        event.getAttendance().remove(me);
+        event.setMaxParticipant(event.getMaxParticipant()+1);
+        dbUserRepository.save(me);
+        eventRepository.save(event);
+        return new RedirectView("/profile");
+    }
+
 }
