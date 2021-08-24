@@ -463,6 +463,40 @@ background-color: #343a40;
 margin-top: 3%;
 
     }
+    .closeDiv{
+    height:25px;
+    width:55px;
+    background-color:#fd3232;
+    border-radius: 5px;
+    position: relative;
+bottom: 200px;
+left: 255px;
+    }
+<!--    .checkbox{-->
+<!--  display: flex;-->
+<!--flex-wrap: wrap;-->
+<!--gap: 3px;-->
+<!--padding: 3px;-->
+<!--width: 100%;-->
+<!--background-color: blue;-->
+<!--position: relative;-->
+<!--left: 140px;-->
+<!--bottom: 180px;-->
+<!--height: 30px;-->
+<!--font-size: small;-->
+<!--    }-->
+.bottons{
+position:relative;
+bottom:20px
+}
+
+.scroll{
+overflow-y: scroll;
+height: 83vh;
+border-right: 1px solid #3c3c3c17;
+scrollbar-width: none;
+}
+
 </style>
 </head>
 <body>
@@ -485,7 +519,7 @@ grid-template-columns: 1fr 1fr;
 justify-items: center;
 margin-top:5%">
 <div class="myevents" >
-    <h2 style="color:black; text-align: center;padding-bottom:5%"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;">  My Events</span></i></h2>
+    <h2 style="color:black; text-align: center;padding-bottom:5%"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;"> My Friends Events</span></i></h2>
 
     <div class="scroll">
 <div th:each="user: ${following}" class="followingenvents">
@@ -499,26 +533,31 @@ margin-top:5%">
                 <div>
                     <h4 class="card-title"><i class="fas fa-calendar"></i><span th:text="'  '+${event.name}"></span></h4>
                     <p class="card-title"><i class="far fa-calendar-alt"></i><span th:text="'  '+${event.date}" ></span></p>
-                    <p  class="card-title"><i class="fas fa-male"></i><span th:text="'  '+${event.maxParticipant}"></span></p>
+                    <p  class="card-title"><i class="fas fa-male"></i><span th:text="' Left Participants: '+${event.maxParticipant}"></span></p>
+                    <p  class="card-title"><i class="fas fa-male"></i><span th:text="'  Participants number: '+${event.attendance.size()}"></span></p>
                     <p  class="card-title"><i class="fas fa-map-marker-alt"></i><span th:text="'  '+${event.address}"></span></p>
                 </div>
                 <div class="bottons" style="display: grid;
                     grid-template-columns: 110px 1fr;">
                     <div>
-                    <form method="POST" action="#" th:action="'/addoffer/'+ ${event.id}" th:if="${!me.attendedTo.contains(event)}">
-                        <div class="checkbox" th:each="eventNeed: ${event.eventNeeds}">
-                            <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
-                            <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">
-                        </div>
-                        <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Attend" th:if="${event.maxParticipant!=0}">
-                    </form>
+<!--                    <form method="POST" action="#" th:action="'/addoffer/'+ ${event.id}" th:if="${!me.attendedTo.contains(event)}">-->
+<!--                        <div class="checkbox" th:each="eventNeed: ${event.eventNeeds}">-->
+
+<!--                            <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>-->
+<!--                            <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">-->
+
+<!--                        </div>-->
+<!--                        <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Attend" th:if="${event.maxParticipant!=0}">-->
+<!--                    </form>-->
 
                     <form method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
-                        <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Un Attend" th:if="${event.maxParticipant!=0}" >
+                        <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Un Attend" >
                     </form>
-                    <form method="post" action="#" th:action="'/closed/'+${event.id}" th:if="${event.maxParticipant==0}">
-                        <label th:text="closed"></label>
+                        <div class="closeDiv" th:if="${event.maxParticipant==0}">
+                    <form method="post" action="#" th:action="'/closed/'+${event.id}" >
+                        <label th:text="Closed"></label>
                     </form>
+                        </div>
                     </div>
 
                     <div style="
@@ -538,42 +577,67 @@ margin-top:5%">
 
 
     <div class="attend-events">
-        <h2 style="color:black; text-align: center;"> <i class="far fa-calendar-alt"><span style="font-family: 'Roboto', sans-serif; font-weight: bolder;">  Attended Events</span> </i></h2>
+        <h2 style="color:black; text-align: center;"> <i class="far fa-calendar-alt"><span style="font-family: 'Roboto', sans-serif; font-weight: bolder;">Other Events</span> </i></h2>
+        <div class="scroll">
+        <div class="ALL EVENTS" th:each="user: ${users}">
+            <div  th:each="event : ${user.myEvents}" class="sameevent">
+                <div class="card" >
+                    <div>
+                        <img class="card-img-top"
+                             th:src="${event.img}" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4 class="card-title"><i class="fas fa-calendar"></i><span th:text="'  '+${event.name}"></span></h4>
+                            <p class="card-title"><i class="far fa-calendar-alt"></i><span th:text="'  '+${event.date}" ></span></p>
+                            <p  class="card-title"><i class="fas fa-male"></i><span th:text="' Left Participants '+${event.maxParticipant}"></span></p>
+                            <p  class="card-title"><i class="fas fa-male"></i><span th:text="'  Participants number '+${event.attendance.size()}"></span></p>
+                            <p  class="card-title"><i class="fas fa-map-marker-alt"></i><span th:text="'  '+${event.address}"></span></p>
+                        </div>
+                        <div class="bottons" style="display: grid;
+                    grid-template-columns: 110px 1fr;">
+                            <div>
+<!--                                <form method="POST" action="#" th:action="'/addoffer/'+ ${event.id}" th:if="${!me.attendedTo.contains(event)}">-->
+<!--                                    <div class="checkbox" th:each="eventNeed: ${event.eventNeeds}">-->
+<!--                                        <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>-->
+<!--                                        <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">-->
+<!--                                    </div>-->
+<!--                                -->
+<!--                                    <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Attend" th:if="${event.maxParticipant!=0}">-->
+<!--                                </form>-->
 
-    </div>
+                                <form method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
+                                    <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Un Attend" >
+                                </form>
+                                <div class="closeDiv" th:if="${event.maxParticipant==0}">
+                                    <form method="post" action="#" th:action="'/closed/'+${event.id}">
+                                        <label th:text="Closed"></label>
+                                    </form>
+                                </div>
+                            </div>
 
-</div>
-
-
-
-
-
-
-
-<div class="ALL EVENTS" th:each="user: ${users}">
-    <div th:each="event : ${user.myEvents}">
-        <p>all <span th:text="${event.name}"></span> </p>
-        <form method="POST" action="#" th:action="'/addoffer/'+ ${event.id}" th:if="${!me.attendedTo.contains(event)}">
-            <div th:each="eventNeed: ${event.eventNeeds}">
-                <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
-                <input type="checkbox" th:name="${event.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}">
+                            <div style="
+                     margin-top: 13%;">
+                                <form method="get" action="#" th:action="'/event/' + ${event.id}">
+                                    <button class="btn btn-outline-warning" type="submit">Show Details</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <input type="submit" value="attend" th:if="${event.maxParticipant!=0}">
-        </form>
-        <form method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
-<!--            <label th:text="${eventNeed.name}"></label>-->
-            <input type="hidden" th:name="${event.eventNeeds.indexOf(eventNeed)}" value="${eventNeed.name}">
-            <input type="submit" value="Un Attend" >
-        </form>
-
-        <form method="post" action="#" th:action="'/closed/'+${event.id}" th:if="${event.maxParticipant==0}">
-            <label th:text="closed"></label>
-        </form>
-
-        <form method="get" action="#" th:action="'/event/' + ${event.id}">
-            <button type="submit">Show Details</button>
-        </form>    </div>
+        </div>
+    </div>
+    </div>
 </div>
+
+
+
+
+
+
+
+
 <br>
 
 <div th:replace="footer2 :: footer2">...</div>
