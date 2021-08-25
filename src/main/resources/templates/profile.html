@@ -135,6 +135,7 @@ a:hover {
   transition: all 1s ease-out;
   background: rgb(51, 56, 59);
   padding: 8px;
+  margin-bottom: -10%;
 }
 
 .infocardContainer div {
@@ -220,6 +221,7 @@ overflow-y: scroll;
 height: 83vh;
 border-right: 1px solid #3c3c3c57;
 scrollbar-width: none;
+margin-top:-10%;
 }
 
 
@@ -637,9 +639,9 @@ width: 170px;
                 </div>
             </div>
 
-            <div class="card-body" style="margin-left: 30%;">
-                <h4 class="card-title" style="margin-left: 10%;"><i class="fas fa-file-signature"></i><span style="font-family: 'Roboto', sans-serif" >  Bio</span></h4>
-                <p class="card-text" th:text="${me.bio}"></p>
+            <div class="card-body" >
+                <h4 class="card-title" style="margin-left: 40%;"><i class="fas fa-file-signature"></i><span style="font-family: 'Roboto', sans-serif" >  Bio</span></h4>
+                <p class="card-text" th:text="${me.bio}" style="text-align:center"></p>
             </div>
 
 
@@ -712,6 +714,8 @@ width: 170px;
             <h2 style="color:black; text-align: center;"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;">  My Events</span></i></h2>
 
             <div class="scroll">
+                <h4 th:if="${me.myEvents.size()==0}" style="color:red;margin-top: 17%;
+text-align: center;">you don't have any event yet</h4>
                 <div class="infocardContainer" th:each="event : ${me.myEvents}">
                     <div class="main">
                         <img th:src="${event.img}"></img>
@@ -737,6 +741,8 @@ width: 170px;
             <h2 style="color:black; text-align: center;"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;">  Attended Events</span></i></h2>
 
             <div class="scroll">
+                <h4 th:if="${me.attendedTo.size()==0}" style="color:red;margin-top: 17%;
+text-align: center;">you didn't attend any event yet</h4>
                 <div class="infocardContainer" th:each="event : ${me.attendedTo}">
                     <div class="main">
                         <img th:src="${event.img}"></img>
@@ -803,7 +809,7 @@ width: 170px;
                             <input type="text" class="form-control" id="img" name="img" placeholder="Event Img Url" required>
                         </div>
                         <div class="form-group">
-                            <label for="number_links">select the number of needs</label>
+                            <label for="number_links">Select The Number Of Needs</label>
                             <select name="number_links" id="number_links">
                                                <option value="0">0</option>
                                                  <option value="1">1</option>
@@ -843,13 +849,13 @@ $("select").on('change',function () {
       $("#needs").append('<div id="single" ></div>')
       $("#single").attr("id", "input"+i);
 
-      $("#input" +i).append("<label for='need'>need name</label>");
+      $("#input" +i).append("<label for='need'>Need name</label>");
       $("#input"+i).append("<input id='need' type='text' name='need' required>");
       $("#need").removeAttr("name")
       $("#need").attr("name", "name"+i);
       $("#need").attr("id", "name"+i);
 
-      $("#input"+i).append("<label for='needNumber'>need count</label>");
+      $("#input"+i).append("<label for='needNumber'>Quantity</label>");
       $("#input"+i).append("<input id='needNumber' type='number' name='needNumber' required>");
       $("#needNumber").removeAttr("name")
       $("#needNumber").attr("name", "number"+i);
