@@ -1,6 +1,7 @@
 package com.example.eventplatform.controller;
 
 import com.example.eventplatform.model.DbUser;
+import com.example.eventplatform.model.Event;
 import com.example.eventplatform.repository.DbUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -59,6 +60,8 @@ public class UserController {
         }
     }
 
+
+    String eventSearch=null;
     @GetMapping("/profile")
     public String profilepage(Principal p, Model model) {
         DbUser me=dbUserRepository.findByUsername(p.getName());
@@ -108,6 +111,13 @@ public class UserController {
         return new RedirectView("/user/{id}");
     }
 
+
+
+    @PostMapping("/searcheventfromprofile")
+    public RedirectView searchEventFromProfile(@RequestParam(value = "search") String eventName){
+        eventSearch = eventName;
+        return new RedirectView("/profile");
+    }
 
 
 

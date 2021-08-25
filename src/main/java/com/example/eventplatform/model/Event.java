@@ -1,7 +1,9 @@
 package com.example.eventplatform.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class Event {
     private String date;
     private int maxParticipant;
     private String img;
-    private LocalDateTime createdAt;
+    private LocalDate createdAt;
     private String address;
 
     @ManyToOne()
@@ -43,16 +45,16 @@ public class Event {
         this.date = date;
         this.maxParticipant = maxParticipant;
         this.img = img;
-        this.createdAt= LocalDateTime.now();
+        this.createdAt= LocalDate.now();
         this.address = address;
     }
 
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 

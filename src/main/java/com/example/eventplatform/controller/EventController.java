@@ -79,6 +79,9 @@ public class EventController {
         Event event = eventRepository.findById(id).get();
         List<EventNeeds> eventNeeds= event.getEventNeeds();
         eventNeedsRepository.deleteAll(eventNeeds);
+        List<DbUser> empty = new ArrayList<>();
+        event.setAttendance(empty);
+        
         eventRepository.delete(event);
         return new RedirectView("/profile");
     }
@@ -221,5 +224,7 @@ public class EventController {
         eventRepository.save(event);
         return new RedirectView("/profile");
     }
+
+
 
 }
