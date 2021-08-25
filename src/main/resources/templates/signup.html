@@ -20,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <style>
     body{
-    background-color:black;
+    background-color:#343a40;
     }
         .nav-link{
         color:white;
@@ -37,10 +37,81 @@
   border-width: 1px;border-color: #F5D300;
         }
     </style>
+  <style>@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+.content1 {
+	max-width: 650px;
+	margin: 0 auto;
+	top: 35%;
+	position: relative;
+	h1 {
+		line-height: 1.5;
+		color: white;
+		font-weight: 300;
+		text-align: center;
+		font-size: 3rem;
+		text-shadow: 0 2px 5px black;
+	}
+}
+
+
+/* PRELOADER CSS */
+.page-loader{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background: #272727;
+	z-index: 1000;
+	.txt{
+		color: #666;
+		text-align: center;
+		top: 40%;
+		position: relative;
+		text-transform: uppercase;
+		letter-spacing: 0.3rem;
+		font-weight: bold;
+		line-height: 1.5;
+	}
+}
+
+/* SPINNER ANIMATION */
+.spinner {
+	position: relative;
+	top: 35%;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background-color:#F5D300;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}</style>
 </head>
 
 <body>
-
+<div class="page-loader">
+  <div class="spinner"></div>
+  <div class="txt">Cargando<br>vacaciones</div>
+</div>
 <div class="alert alert-danger" role="alert" th:text="${msg}" th:if="${status}">
 </div>
 
@@ -48,7 +119,7 @@
   <br>
   <br>
   <!--    Check img src-->
-  <a href="https://imgbb.com/"><img style="max-width: 100px; margin: 0 auto;" src="https://i.ibb.co/yNHRMxF/1.png" alt="1" border="0"></a>
+  <a href="https://ibb.co/c1K8ThQ"><img style="width:100px;" class="navbar-brand" src="https://i.ibb.co/c1K8ThQ/logo.png" alt="logo" border="0"></a>
   <img src="https://ibb.co/x2xscrq" alt="" srcset="" style="max-width: 100px; margin: 0 auto;">
   <br>
   <br>
@@ -84,5 +155,11 @@
   <br>
   <br>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>$(window).on('load',function(){
+	setTimeout(function(){ // allowing 3 secs to fade out loader
+	$('.page-loader').stop().fadeOut('slow');
+	},1000);
+});</script>
 </body>
 </html>
