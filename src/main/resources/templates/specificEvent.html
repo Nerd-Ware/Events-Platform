@@ -1,8 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!--    loading page style-->
+    <style>@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+.content1 {
+	max-width: 650px;
+	margin: 0 auto;
+	top: 35%;
+	position: relative;
+	h1 {
+		line-height: 1.5;
+		color: white;
+		font-weight: 300;
+		text-align: center;
+		font-size: 3rem;
+		text-shadow: 0 2px 5px black;
+	}
+}
+
+
+/* PRELOADER CSS */
+.page-loader{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background: #272727;
+	z-index: 1000;
+	.txt{
+		color: #666;
+		text-align: center;
+		top: 40%;
+		position: relative;
+		text-transform: uppercase;
+		letter-spacing: 0.3rem;
+		font-weight: bold;
+		line-height: 1.5;
+	}
+}
+
+/* SPINNER ANIMATION */
+.spinner {
+	position: relative;
+	top: 35%;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background-color: #F5D300;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}</style>
+
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous" />
@@ -637,6 +709,10 @@ width: 170px;
     </style>
 </head>
 <body>
+  <div class="page-loader">
+    <div class="spinner"></div>
+    <div class="txt">Cargando<br>vacaciones</div>
+</div>
 <div th:replace="header :: header">...</div>
 
 <div class="card text-center mainDiv">
@@ -669,6 +745,7 @@ width: 170px;
             </div>
         </div>
 
+
         <h5 class="chakeHand"> <span class="welcomeName"><i class="fas fa-hands-helping "></i> </span>Check what you can offer for us </h5>
         <form method="POST" action="#" th:action="'/attendFromSpecificPage/'+ ${specificEvent.id}" th:if="${!me.attendedTo.contains(specificEvent)}" >
             <div th:each="eventNeed: ${specificEvent.eventNeeds}" class="checkbox">
@@ -696,6 +773,17 @@ width: 170px;
 </div>
 
 
-<div th:replace="footer2 :: footer2">...</div>
+  <div th:replace="footer2 :: footer2">...</div>
+<!--function of loading page-->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>$(window).on('load',function(){
+	setTimeout(function(){ // allowing 3 secs to fade out loader
+	$('.page-loader').stop().fadeOut('slow');
+	},500);
+});</script>
+
+
+
+
 </body>
 </html>

@@ -64,25 +64,13 @@ border-style: solid;
                      <a class="nav-link" aria-current="page" href="/"><i class="fas fa-house-user"><span style="font-family: 'Roboto', sans-serif;">   Home</span></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/profile"  sec:authorize="isAuthenticated()"><i class="fas fa-house-user"><span style="font-family: 'Roboto', sans-serif;">   profile</span></i></a>
+                    <a class="nav-link" aria-current="page" href="/profile"  sec:authorize="isAuthenticated()"><i class="fas fa-user"><span style="font-family: 'Roboto', sans-serif;">   profile</span></i></a>
                 </li>
 
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" aria-current="page" href="/myfriends" sec:authorize="isAuthenticated()"><i class="fas fa-users"><span style="font-family: 'Roboto', sans-serif;">   My Friends</span></i></a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" aria-current="page" href="/upcommingevents" sec:authorize="isAuthenticated()"><i class="fas fa-calendar-plus"><span style="font-family: 'Roboto', sans-serif;">   Upcoming Event</span></i></a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/findfriends"><i class="fas fa-user-plus" sec:authorize="isAuthenticated()" ><span style="font-family: 'Roboto', sans-serif;">   Find Friends</span></i></a>-->
-<!--                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="/aboutus"><i class="fas fa-address-card" sec:authorize="isAuthenticated()" ><span style="font-family: 'Roboto', sans-serif;">   About Us</span></i></a>
                 </li>
             </ul>
-<!--            <form class="d-flex" method="get" action="/perform_logout" sec:authorize="isAuthenticated()">-->
-<!--                <button class="btn btn-outline-warning" type="submit"><i class="fas fa-sign-out-alt"><span style="font-family: 'Roboto', sans-serif;">  Sign out</span></i></button>-->
-<!--            </form>-->
             <form class="d-flex" method="get" action="/login" sec:authorize="isAnonymous()">
                 <button class="btn btn-outline-warning" type="submit"><i class="fas fa-sign-out-alt"><span style="font-family: 'Roboto', sans-serif;">  Sign in</span></i></button>
             </form>
