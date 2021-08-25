@@ -79,13 +79,7 @@ border-style: solid;
                     <i class="fas fa-user-circle"><span style="font-family: 'Roboto', sans-serif; margin-left:10px" sec:authentication="name"></span></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color:#343a40!important;border-style:solid;border-width: 1px;border-color:#F5D300; padding:right:10px ">
-                    <li class="nav-item">
-                    <form  method="get" sec:authorize="isAuthenticated()">
 
-                        <a href="/perform_logout" class="nav-link new" type="submit"><i class="fas fa-sign-out-alt"><span style="font-family: 'Roboto', sans-serif;">  Sign out</span></i></a>
-
-                    </form>
-                    </li>
                     <li class="nav-item ">
                         <a class="nav-link new" aria-current="page" href="/myfriends" sec:authorize="isAuthenticated()"><i class="fas fa-users"><span style="font-family: 'Roboto', sans-serif;">   My Friends</span></i></a>
                     </li>
@@ -94,6 +88,13 @@ border-style: solid;
                     </li>
                     <li class="nav-item">
                         <a class="nav-link new" href="/findfriends"><i class="fas fa-user-plus" sec:authorize="isAuthenticated()" ><span style="font-family: 'Roboto', sans-serif;">   Find Friends</span></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <form  method="get" sec:authorize="isAuthenticated()">
+
+                            <a href="/perform_logout" class="nav-link new" type="submit"><i class="fas fa-sign-out-alt"><span style="font-family: 'Roboto', sans-serif;">  Sign out</span></i></a>
+
+                        </form>
                     </li>
                 </div>
             </div>

@@ -741,6 +741,8 @@ font-size:1rem;
         <h2 style="color:black; text-align: center;"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;" th:text="' '+${user.username}+'\'s Events'">  </span></i></h2>
 
         <div class="scroll">
+          <h4 th:if="${user.myEvents.size()==0}" style="color:red;margin-top: 17%;
+text-align: center;">This user doesn't have any event</h4>
           <div class="infocardContainer" th:each="event : ${user.myEvents}">
             <div class="main">
               <img th:src="${event.img}"></img>
@@ -764,6 +766,8 @@ font-size:1rem;
         <h2 style="color:black; text-align: center;"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;">  Attended Events</span></i></h2>
 
         <div class="scroll">
+          <h4 th:if="${user.attendedTo.size()==0}" style="color:red;margin-top: 17%;
+text-align: center;">This user didn't attend any event</h4>
           <div class="infocardContainer" th:each="event : ${user.attendedTo}">
             <div class="main">
               <img th:src="${event.img}"></img>
