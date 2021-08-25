@@ -455,13 +455,12 @@ grid-template-rows: 1fr auto; color:white;
     .card{
    width: 40rem;
 display: grid;
-grid-template-columns: 280px 1fr;
+grid-template-columns: 250px 1fr;
 height: 250px;
-border-radius: 145px 50px 50px 140px;
+border-radius: 140px 110px 30px 140px;
 border: solid 1px white;
 background-color: #343a40;
 margin-top: 3%;
-
     }
     .closeDiv{
     height:25px;
@@ -493,13 +492,87 @@ bottom:20px
 .scroll{
 overflow-y: scroll;
 height: 83vh;
-border-right: 1px solid #3c3c3c17;
 scrollbar-width: none;
+padding-right: 50px;
 }
 
 </style>
+    <!--    loading page style-->
+    <style>@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+.content1 {
+	max-width: 650px;
+	margin: 0 auto;
+	top: 35%;
+	position: relative;
+	h1 {
+		line-height: 1.5;
+		color: white;
+		font-weight: 300;
+		text-align: center;
+		font-size: 3rem;
+		text-shadow: 0 2px 5px black;
+	}
+}
+
+
+/* PRELOADER CSS */
+.page-loader{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background: #272727;
+	z-index: 1000;
+	.txt{
+		color: #666;
+		text-align: center;
+		top: 40%;
+		position: relative;
+		text-transform: uppercase;
+		letter-spacing: 0.3rem;
+		font-weight: bold;
+		line-height: 1.5;
+	}
+}
+
+/* SPINNER ANIMATION */
+.spinner {
+	position: relative;
+	top: 35%;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background-color: #F5D300;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}</style>
 </head>
 <body>
+<!--loading page text-->
+<div class="page-loader">
+    <div class="spinner"></div>
+    <div class="txt">Cargando<br>vacaciones</div>
+</div>
 <div th:replace="header :: header">...</div>
 <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
@@ -521,12 +594,15 @@ margin-top:5%">
 <div class="myevents" >
     <h2 style="color:black; text-align: center;padding-bottom:5%"><i class="fas fa-calendar-check"><span style="font-family: 'Roboto', sans-serif ;font-weight: bolder;"> My Friends Events</span></i></h2>
 
-    <div class="scroll">
+    <div class="scroll" style="border-right: 1px solid #3c3c3c17;">
 <div th:each="user: ${following}" class="followingenvents">
     <div  th:each="event : ${user.myEvents}" class="sameevent">
-        <div class="card" >
+        <div class="card" style=" width: 570px;" >
             <div>
-                <img class="card-img-top"
+                <img style="height: 220px;
+width: 220px;
+margin-left: 10px;
+margin-top: 15px;" class="card-img-top"
                      th:src="${event.img}" alt="Card image cap">
             </div>
             <div class="card-body">
@@ -550,8 +626,8 @@ margin-top:5%">
 <!--                        <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Attend" th:if="${event.maxParticipant!=0}">-->
 <!--                    </form>-->
 
-                    <form method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
-                        <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Un Attend" >
+                    <form style="margin-top: 7%;" method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
+                        <input style="margin-top: 15px;" class="btn btn-warning" type="submit" value="Un Attend" >
                     </form>
                         <div class="closeDiv" th:if="${event.maxParticipant==0}">
                     <form method="post" action="#" th:action="'/closed/'+${event.id}" >
@@ -577,13 +653,16 @@ margin-top:5%">
 
 
     <div class="attend-events">
-        <h2 style="color:black; text-align: center;"> <i class="far fa-calendar-alt"><span style="font-family: 'Roboto', sans-serif; font-weight: bolder;">Other Events</span> </i></h2>
+        <h2 style="color:black; text-align: center;padding-bottom:5%"> <i class="far fa-calendar-alt"><span style="font-family: 'Roboto', sans-serif; font-weight: bolder;">  Other Events</span> </i></h2>
         <div class="scroll">
         <div class="ALL EVENTS" th:each="user: ${users}">
             <div  th:each="event : ${user.myEvents}" class="sameevent">
-                <div class="card" >
+                <div class="card" style=" width: 570px;" >
                     <div>
-                        <img class="card-img-top"
+                        <img style="height: 220px;
+width: 220px;
+margin-left: 10px;
+margin-top: 15px;" class="card-img-top"
                              th:src="${event.img}" alt="Card image cap">
                     </div>
                     <div class="card-body">
@@ -641,5 +720,12 @@ margin-top:5%">
 <br>
 
 <div th:replace="footer2 :: footer2">...</div>
+<!--function of loading page-->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>$(window).on('load',function(){
+	setTimeout(function(){ // allowing 3 secs to fade out loader
+	$('.page-loader').stop().fadeOut('slow');
+	},500);
+});</script>
 </body>
 </html>

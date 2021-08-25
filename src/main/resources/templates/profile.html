@@ -544,8 +544,83 @@ border-bottom: solid 1px #ffffff36 !important;
 width: 170px;
 }
     </style>
+    <!--    loading page style-->
+    <style>@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+.content1 {
+	max-width: 650px;
+	margin: 0 auto;
+	top: 35%;
+	position: relative;
+	h1 {
+		line-height: 1.5;
+		color: white;
+		font-weight: 300;
+		text-align: center;
+		font-size: 3rem;
+		text-shadow: 0 2px 5px black;
+	}
+}
+
+
+/* PRELOADER CSS */
+.page-loader{
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background: #272727;
+	z-index: 1000;
+	.txt{
+		color: #666;
+		text-align: center;
+		top: 40%;
+		position: relative;
+		text-transform: uppercase;
+		letter-spacing: 0.3rem;
+		font-weight: bold;
+		line-height: 1.5;
+	}
+}
+
+/* SPINNER ANIMATION */
+.spinner {
+	position: relative;
+	top: 35%;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background-color: #F5D300;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}</style>
 </head>
 <body>
+<!--loading page text-->
+<div class="page-loader">
+    <div class="spinner"></div>
+    <div class="txt">Cargando<br>vacaciones</div>
+</div>
+
 
 <div th:replace="header :: header">...</div>
 
@@ -645,7 +720,7 @@ width: 170px;
                         <h3><span th:text="${event.name}"></span></h3>
                         <h5 th:text="${event.date}"></h5>
                         <p th:text="${event.description}"></p>
-                        <p> Max Number Of Participants  <span th:text="${event.maxParticipant}"></span></p>
+                        <p> Max Number Of Participants  <span style="margin-left:10px" th:text="${'  '+event.maxParticipant}"></span></p>
                         <div class="hotlinks">
                             <form action="#" th:action="'/deleteevent/'+ ${event.id}" method="post" >
                                    <button type="submit" style="color:black; width: 110px;">Delete event</button>
@@ -670,7 +745,7 @@ width: 170px;
                         <h3><span th:text="${event.name}"></span></h3>
                         <h5 th:text="${event.date}"></h5>
                         <p th:text="${event.description}"></p>
-                        <p> Max Number Of Participants  <span th:text="${event.maxParticipant}"></span></p>
+                        <p> Max Number Of Participants  <span style="margin-left:10px" th:text="${'  '+event.maxParticipant}"></span></p>
                         <div class="hotlinks">
                             <a th:href="'/event/' + ${event.id}"> <button type="submit" style="color:black;width: 65px;">Details </button></a>
 
@@ -724,28 +799,28 @@ width: 170px;
                     <form method="post" action="/addevent"  id="updatedForm">
                             <div class="form-group">
                                 <label for="name">Event Name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Event Name">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Event Name" required>
                             </div>
                             <div class="form-group">
                                 <label for="description">Event Description</label>
-                                <input type="text" class="form-control" id="description" name="description" placeholder="Event Description">
+                                <input type="text" class="form-control" id="description" name="description" placeholder="Event Description" required>
                             </div>
 
                         <div class="form-group">
                             <label for="inputAddress">Event Place</label>
-                            <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="Event Address">
+                            <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="Event Address" required>
                         </div>
                         <div class="form-group">
                             <label for="date">Event Date</label>
-                            <input type="date" class="form-control" id="date" name="date" placeholder="Event Date">
+                            <input type="date" class="form-control" id="date" name="date" placeholder="Event Date" required>
                         </div>
                         <div class="form-group">
                             <label for="maxParticipant">event max Participant number</label>
-                            <input type="number" class="form-control" id="maxParticipant" name="maxParticipant" placeholder="event max Participant number">
+                            <input type="number" class="form-control" id="maxParticipant" name="maxParticipant" placeholder="event max Participant number" required>
                         </div>
                         <div class="form-group">
                             <label for="img">Event Img Url</label>
-                            <input type="text" class="form-control" id="img" name="img" placeholder="Event Img Url">
+                            <input type="text" class="form-control" id="img" name="img" placeholder="Event Img Url" required>
                         </div>
                         <div class="form-group">
                             <label for="number_links">select the number of needs</label>
@@ -771,36 +846,6 @@ width: 170px;
     </div>
 
     </div>
-
-<!--    <form method="post" action="/addevent"  id="updatedForm">-->
-<!--        <fieldset>-->
-<!--            <legend>add an event</legend>-->
-<!--            <label for="name">event name</label>-->
-<!--            <input id="name" name="name" type="text" required>-->
-<!--            <label for="description">event description</label>-->
-<!--            <input id="description" name="description" type="text" required>-->
-<!--            <label for="date">event date</label>-->
-<!--            <input id="date" name="date" type="date"  required>-->
-<!--            <label for="maxParticipant">event max Participant number</label>-->
-<!--            <input id="maxParticipant" name="maxParticipant" type="number" required>-->
-<!--            <label for="img">event img url</label>-->
-<!--            <input id="img" name="img" type="text" required>-->
-
-<!--            <label for="number_links">select the number of needs</label>-->
-<!--            <select name="number_links" id="number_links">-->
-<!--                <option value="1">1</option>-->
-<!--                <option value="2">2</option>-->
-<!--                <option value="3">3</option>-->
-<!--                <option value="4">4</option>-->
-<!--                <option value="5">5</option>-->
-<!--            </select>-->
-<!--            <div id="needs">-->
-
-
-<!--            </div>-->
-<!--            <input type="submit" value="add Event">-->
-<!--        </fieldset>-->
-<!--    </form>-->
 
 </main>
 <div th:replace="footer2 :: footer2">...</div>
@@ -840,7 +885,11 @@ $('#myModal').modal({
 })
 
 </script>
-
+<script>$(window).on('load',function(){
+	setTimeout(function(){ // allowing 3 secs to fade out loader
+	$('.page-loader').stop().fadeOut('slow');
+	},500);
+});</script>
 </body>
 </html>
 
