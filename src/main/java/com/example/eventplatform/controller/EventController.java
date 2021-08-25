@@ -146,6 +146,16 @@ public class EventController {
     public String eventDetails(@PathVariable(value = "id") int id , Model model,Principal p){
         Event event =eventRepository.findById(id).get();
         DbUser me = dbUserRepository.findByUsername(p.getName());
+        for (int i = 0; i < event.getEventNeeds().size(); i++) {
+            if(event.getEventNeeds().get(i).getCount()> 0 ){
+                model.addAttribute("status",true);
+                break;
+            }else {
+                model.addAttribute("status",false);
+            }
+        }
+
+
         List<DbUser> users = (List<DbUser>) dbUserRepository.findAll();
         users.remove(me);
         users.removeAll(me.getFollowing());

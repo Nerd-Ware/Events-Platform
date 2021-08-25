@@ -90,16 +90,17 @@ margin-top: 5%;
    font-family: 'Raleway', sans-serif;
     }
  .goBack{
-     position: relative;
-    bottom: 320px;
-    left: 250px;
+    position: relative;
+bottom: 140%;
+width: 12%;
+right: 49%;
  }
  .checkbox{
     position: relative;
     bottom: 350px;
     display: inline-block;
     padding: 10px;
-    left: 18%;
+    left: 33%;
  }
  .chakeHand{
     position: absolute;
@@ -109,7 +110,7 @@ margin-top: 5%;
  }
  .unAttendButton{
  position: relative;
-    bottom: 273px;
+    bottom: 282px;
     left: 140px;
  }
 
@@ -669,15 +670,14 @@ width: 170px;
             </div>
         </div>
 
-        <h5 class="chakeHand"> <span class="welcomeName"><i class="fas fa-hands-helping "></i> </span>Check what you can offer for us </h5>
-        <form method="POST" action="#" th:action="'/attendFromSpecificPage/'+ ${specificEvent.id}" th:if="${!me.attendedTo.contains(specificEvent)}" >
+        <h5 class="chakeHand" th:if="${status}"> <span class="welcomeName"><i class="fas fa-hands-helping "></i> </span>Check what you can offer for us </h5>
+        <form method="POST" action="#" th:action="'/attendFromSpecificPage/'+ ${specificEvent.id}" th:if="${!me.attendedTo.contains(specificEvent)}" style="margin-right: 20%;">
             <div th:each="eventNeed: ${specificEvent.eventNeeds}" class="checkbox">
                 <label th:text="${eventNeed.name}" th:if="${eventNeed.count != 0}"></label>
                 <input type="checkbox" th:name="${specificEvent.eventNeeds.indexOf(eventNeed)}" th:if="${eventNeed.count != 0}" >
             </div>
-            <input type="submit" value="Attend" th:if="${specificEvent.maxParticipant!=0}" class="btn btn-warning buttons">
+            <input type="submit" value="Attend" th:if="${specificEvent.maxParticipant!=0}" class="btn btn-warning buttons" >
         </form>
-
         <form method="post" action="#" th:action="'/unAttendFromSpecificPage/'+${specificEvent.id}" th:if="${me.attendedTo.contains(specificEvent)}" >
             <input type="submit" value="Un Attend" class="btn btn-warning unAttendButton" >
         </form>
@@ -689,8 +689,11 @@ width: 170px;
             <label th:text="Closed" ></label>
         </form>
         </div>
-        <a href="/upcommingevents" class="btn btn-outline-warning goBack">Go Back</a>
+
+        <a href="/upcommingevents" class="goBack"><i class="fas fa-arrow-alt-circle-left" style="font-size:30px;"></i></a>
     </div>
+
+
 
 
 </div>
