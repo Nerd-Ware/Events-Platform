@@ -468,8 +468,8 @@ margin-top: 3%;
     background-color:#fd3232;
     border-radius: 5px;
     position: relative;
-bottom: 200px;
-left: 255px;
+bottom: 210px;
+left: 235px;
     }
 <!--    .checkbox{-->
 <!--  display: flex;-->
@@ -686,11 +686,11 @@ margin-top: 15px;" class="card-img-top"
 <!--                                </form>-->
 
                                 <form method="post" action="#" th:action="'/unattend/'+${event.id}" th:if="${me.attendedTo.contains(event)}">
-                                    <input style="margin-top: 30px;" class="btn btn-warning" type="submit" value="Un Attend" >
+                                    <input style="margin-top: 21%;" class="btn btn-warning" type="submit" value="Un Attend" >
                                 </form>
                                 <div class="closeDiv" th:if="${event.maxParticipant==0}">
                                     <form method="post" action="#" th:action="'/closed/'+${event.id}">
-                                        <label th:text="Closed"></label>
+                                        <label style="padding:2px" th:text="Closed"></label>
                                     </form>
                                 </div>
                             </div>
